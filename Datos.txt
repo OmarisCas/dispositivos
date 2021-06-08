@@ -1,0 +1,30 @@
+Mis datos
+1) Nombre del proyecto laravel: crud_base
+2) Archivo con ubicación_ resources/views/welcome.blade.php_
+dentro de la etiqueta body hay una etiqueta div con id="example"
+3) Crear nueva carpeta en la ubicacion: resources/js/src/App.js
+4) Nombre de la bd: crud_base
+
+----------------------------------------------------------------------
+Sus datos
+1) Nombre del proyecto laravel: laravel-react-crud
+2) Archivo con ubicación_ resources/views/welcome.blade.php_
+dentro de la etiqueta body hay una etiqueta div con id="app"
+3) Crear nueva carpeta en la ubicacion: resources/js/src/App.js
+4) Nombre de la bd: laravel
+
+Comandos ejecutados:
+composer create-project --prefer-dist laravel/laravel crud_base
+composer require laravel/ui:^2.4
+php artisan ui react
+npm install
+npm run dev
+npm run watch
+npm install react-router-dom --save
+este comando no:
+php artisan make:migration create_posts_table
+estos comandos si:
+php artisan migrate
+php artisan make:model Post
+php artisan make:controller PostController --resource
+php artisan make:resource Post
