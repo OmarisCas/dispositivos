@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from "react-router-dom";
 import AppContainer from './AppContainer';
 import api from '../api';
@@ -9,6 +9,7 @@ const AddPersona = () => {
     const [nombre, setNombre] = useState('');
     const [apellido, setApellido] = useState('');
     const [cargo_id, setCargo_id] = useState('');
+    const [cargos, setCargos] = useState([]);
 
     const onAddSubmit = async () => {
         setLoading(true);
@@ -24,6 +25,17 @@ const AddPersona = () => {
         }
     };
 
+    const fetchCargos = () => {
+        api.getAllCargos().then(res => {
+            const result = res.data;
+            setCargos(result.data)
+        });
+    }
+
+    useEffect(() => {
+        fetchCargos();
+    }, []);
+
     return(
         <AppContainer title="Agregar Persona">
             <form>
@@ -36,8 +48,12 @@ const AddPersona = () => {
                     <input className="form-control" type="text" value={apellido} onChange={e => setApellido(e.target.value)} />
                 </div>
                 <div className="form-group">
-                    <label>Cargo_id</label>
-                    <input className="form-control" type="text" value={cargo_id} onChange={e => setCargo_id(e.target.value)} />
+                    <label>Cargo</label>
+                    <select onChange={e => setCargo_id(e.target.value)} className="form-control"> 
+                        {cargos.map(cargo => 
+                            <option key={cargo.id} value={cargo.id}>{cargo.nombre}</option>
+                        )}
+                    </select>
                 </div>
                 <div className="form-group">
                     <button type="button" className="btn btn-success" onClick={onAddSubmit} disabled={loading}>

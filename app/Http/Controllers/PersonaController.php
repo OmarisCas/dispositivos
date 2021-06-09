@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Resources\Persona as PersonaResource;
-use App\Persona;
+use App\{Persona, Cargo};
 
 class PersonaController extends Controller
 {
@@ -93,4 +93,5 @@ class PersonaController extends Controller
             'data' => 'Persona eliminada!'
         ]);
     }
+
 }

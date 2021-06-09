@@ -71225,6 +71225,11 @@ var AddPersona = function AddPersona() {
       cargo_id = _useState8[0],
       setCargo_id = _useState8[1];
 
+  var _useState9 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])([]),
+      _useState10 = _slicedToArray(_useState9, 2),
+      cargos = _useState10[0],
+      setCargos = _useState10[1];
+
   var onAddSubmit = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
@@ -71268,6 +71273,16 @@ var AddPersona = function AddPersona() {
     };
   }();
 
+  var fetchCargos = function fetchCargos() {
+    _api__WEBPACK_IMPORTED_MODULE_4__["default"].getAllCargos().then(function (res) {
+      var result = res.data;
+      setCargos(result.data);
+    });
+  };
+
+  Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
+    fetchCargos();
+  }, []);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_AppContainer__WEBPACK_IMPORTED_MODULE_3__["default"], {
     title: "Agregar Persona"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
@@ -71290,14 +71305,17 @@ var AddPersona = function AddPersona() {
     }
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "form-group"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", null, "Cargo_id"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
-    className: "form-control",
-    type: "text",
-    value: cargo_id,
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", null, "Cargo"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("select", {
     onChange: function onChange(e) {
       return setCargo_id(e.target.value);
-    }
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    },
+    className: "form-control"
+  }, cargos.map(function (cargo) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
+      key: cargo.id,
+      value: cargo.id
+    }, cargo.nombre);
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "form-group"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
     type: "button",
@@ -71740,6 +71758,11 @@ var EditPersona = function EditPersona() {
       cargo_id = _useState8[0],
       setCargo_id = _useState8[1];
 
+  var _useState9 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])([]),
+      _useState10 = _slicedToArray(_useState9, 2),
+      cargos = _useState10[0],
+      setCargos = _useState10[1];
+
   var onEditSubmit = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
@@ -71783,6 +71806,13 @@ var EditPersona = function EditPersona() {
     };
   }();
 
+  var fetchCargos = function fetchCargos() {
+    _api__WEBPACK_IMPORTED_MODULE_4__["default"].getAllCargos().then(function (res) {
+      var result = res.data;
+      setCargos(result.data);
+    });
+  };
+
   Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
     _api__WEBPACK_IMPORTED_MODULE_4__["default"].getOnePersona(id).then(function (res) {
       var result = res.data;
@@ -71791,6 +71821,7 @@ var EditPersona = function EditPersona() {
       setApellido(persona.apellido);
       setCargo_id(persona.cargo_id);
     });
+    fetchCargos();
   }, []);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_AppContainer__WEBPACK_IMPORTED_MODULE_3__["default"], {
     title: "Editar Persona"
@@ -71814,14 +71845,18 @@ var EditPersona = function EditPersona() {
     }
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "form-group"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", null, "Cargo_id"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
-    className: "form-control",
-    type: "text",
-    value: cargo_id,
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", null, "Cargo"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("select", {
     onChange: function onChange(e) {
       return setCargo_id(e.target.value);
-    }
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    },
+    className: "form-control"
+  }, cargos.map(function (cargo) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
+      selected: cargo_id == cargo.id,
+      key: cargo.id,
+      value: cargo.id
+    }, cargo.nombre);
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "form-group"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
     type: "button",
@@ -72070,6 +72105,11 @@ var HomePersona = function HomePersona() {
       personas = _useState2[0],
       setPersonas = _useState2[1];
 
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
+      _useState4 = _slicedToArray(_useState3, 2),
+      cargos = _useState4[0],
+      setCargos = _useState4[1];
+
   var fetchPersonas = function fetchPersonas() {
     _api__WEBPACK_IMPORTED_MODULE_3__["default"].getAllPersonas().then(function (res) {
       var result = res.data;
@@ -72077,8 +72117,16 @@ var HomePersona = function HomePersona() {
     });
   };
 
+  var fetchCargos = function fetchCargos() {
+    _api__WEBPACK_IMPORTED_MODULE_3__["default"].getAllCargos().then(function (res) {
+      var result = res.data;
+      setCargos(result.data);
+    });
+  };
+
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     fetchPersonas();
+    fetchCargos();
   }, []);
 
   var renderPersonas = function renderPersonas() {
@@ -72094,8 +72142,12 @@ var HomePersona = function HomePersona() {
       }, "No hay personas, agrega una."));
     }
 
-    return personas.map(function (persona) {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, persona.id), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, persona.nombre), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, persona.apellido), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, persona.cargo_id), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    return personas.map(function (persona, index) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, persona.id), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, persona.nombre), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, persona.apellido), cargos.map(function (cargo) {
+        if (persona.cargo_id === cargo.id) {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, cargo.nombre);
+        }
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         className: "btn btn-warning",
         to: "/editpers/".concat(persona.id)
       }, "EDITAR"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {

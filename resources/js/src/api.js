@@ -35,6 +35,5 @@ export default {
         axios.put(`${BASE_API_URL}/cargos/${id}`, cargo),
     deleteCargo: (id) =>
         axios.delete(`${BASE_API_URL}/cargos/${id}`),
-
-    
+            
 }

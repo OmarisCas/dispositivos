@@ -5,6 +5,7 @@ import api from '../api';
 
 const HomePersona = () => {
     const [personas, setPersonas] = useState(null);
+    const [cargos, setCargos] = useState([]);
 
     const fetchPersonas = () => {
         api.getAllPersonas().then(res => {
@@ -13,8 +14,16 @@ const HomePersona = () => {
         });
     }
 
+    const fetchCargos = () => {
+        api.getAllCargos().then(res => {
+            const result = res.data;
+            setCargos(result.data)
+        });
+    }
+
     useEffect(() => {
         fetchPersonas();
+        fetchCargos();
     }, []);
 
     const renderPersonas = () => {
@@ -37,12 +46,18 @@ const HomePersona = () => {
             );
         }
 
-        return personas.map((persona) => (
+        return personas.map((persona, index) => (
             <tr>
                 <td>{persona.id}</td>
                 <td>{persona.nombre}</td>
                 <td>{persona.apellido}</td>
-                <td>{persona.cargo_id}</td>
+                
+                {cargos.map(cargo => {
+                    if( persona.cargo_id === cargo.id ){
+                        return <td>{cargo.nombre}</td>
+                    }}
+                )}
+                
                 <td>
                     <Link className="btn btn-warning" to={`/editpers/${persona.id}`}>
                         EDITAR
