@@ -3,55 +3,54 @@ import { Link } from 'react-router-dom';
 import AppContainer from './AppContainer';
 import api from '../api';
 
-const HomePersona = () => {
-    const [personas, setPersonas] = useState(null);
+const HomeCargo = () => {
+    const [cargos, setCargos] = useState(null);
 
-    const fetchPersonas = () => {
-        api.getAllPersonas().then(res => {
+    const fetchCargos = () => {
+        api.getAllCargos().then(res => {
             const result = res.data;
-            setPersonas(result.data)
+            setCargos(result.data)
         });
     }
 
     useEffect(() => {
-        fetchPersonas();
+        fetchCargos();
     }, []);
 
-    const renderPersonas = () => {
-        if(!personas){
+    const renderCargos = () => {
+        if(!cargos){
             return (
                 <tr>
                     <td colSpan="10">
-                        Cargando personas...
+                        Cargando cargos...
                     </td>
                 </tr>
             );
         }
-        if(personas.length === 0){
+        if(cargos.length === 0){
             return (
                 <tr>
                     <td colSpan="10">
-                        No hay personas, agrega una.
+                        No hay cargos, agrega uno.
                     </td>
                 </tr>
             );
         }
 
-        return personas.map((persona) => (
+        return cargos.map((cargo) => (
             <tr>
-                <td>{persona.id}</td>
-                <td>{persona.nombre}</td>
-                <td>{persona.apellido}</td>
-                <td>{persona.cargo_id}</td>
+                <td>{cargo.id}</td>
+                <td>{cargo.nombre}</td>
+                <td>{cargo.descripcion}</td>
                 <td>
-                    <Link className="btn btn-warning" to={`/editpers/${persona.id}`}>
+                    <Link className="btn btn-warning" to={`/editcar/${cargo.id}`}>
                         EDITAR
                     </Link>
                     <button type="button" className="btn btn-danger" onClick={() => {
-                        api.deletePersona(persona.id)
-                        .then(fetchPersonas)
+                        api.deleteCargo(cargo.id)
+                        .then(fetchCargos)
                         .catch(err => {
-                            alert('Fallo al eliminar persona con id :' + persona.id);
+                            alert('Fallo al eliminar cargo con id :' + cargo.id);
                         });
                     }}>
                         ELIMINAR
@@ -62,23 +61,22 @@ const HomePersona = () => {
     }
 
     return(
-        <AppContainer title="Personas">
-            <Link to="/addpersona" className="btn btn-primary">Agregar Persona</Link>
-            <Link to="/cargos" className="btn btn-secundary">Cargos</Link>
+        <AppContainer title="Cargos">
+            <Link to="/addcargo" className="btn btn-primary">Agregar Cargo</Link>
             <Link to="/dispositivos" className="btn btn-secundary">Dispositivos</Link>
+            <Link to="/personas" className="btn btn-secundary">Personas</Link>
             <div className="table-responsive">
                 <table className="table table-striped mt-4">
                     <thead>
                         <tr>
                             <th>ID</th>
                             <th>Nombre</th>
-                            <th>Apellido</th>
-                            <th>Cargo</th>
+                            <th>Descripcion</th>
                             <th>Accion</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {renderPersonas()}
+                        {renderCargos()}
                     </tbody>
                 </table>
             </div>
@@ -86,4 +84,4 @@ const HomePersona = () => {
     );
 };
 
-export default HomePersona;
+export default HomeCargo;

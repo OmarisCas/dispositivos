@@ -1,43 +1,38 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
 import AppContainer from './AppContainer';
 import api from '../api';
 
-const AddPersona = () => {
+const AddCargo = () => {
     const history = useHistory();
     const [loading, setLoading] = useState(false);
     const [nombre, setNombre] = useState('');
-    const [apellido, setApellido] = useState('');
-    const [cargo_id, setCargo_id] = useState('');
+    const [descripcion, setDescripcion] = useState('');
 
     const onAddSubmit = async () => {
         setLoading(true);
         try {
-            await api.addPersona({
-                nombre, apellido, cargo_id,
+            await api.addCargo({
+                nombre, descripcion,
             })
-            history.push('/personas');
+            history.push('/cargos');
         } catch {
-            alert('Fallo al agregar persona!');
+            alert('Fallo al agregar cargo!');
         } finally {
             setLoading(false);
         }
     };
 
     return(
-        <AppContainer title="Agregar Persona">
+        <AppContainer title="Agregar Cargo">
             <form>
                 <div className="form-group">
                     <label>Nombre</label>
                     <input className="form-control" type="text" value={nombre} onChange={e => setNombre(e.target.value)} />
                 </div>
                 <div className="form-group">
-                    <label>Apellido</label>
-                    <input className="form-control" type="text" value={apellido} onChange={e => setApellido(e.target.value)} />
-                </div>
-                <div className="form-group">
-                    <label>Cargo_id</label>
-                    <input className="form-control" type="text" value={cargo_id} onChange={e => setCargo_id(e.target.value)} />
+                    <label>Descripcion</label>
+                    <textarea className="form-control" value={descripcion} onChange={e => setDescripcion(e.target.value)} ></textarea>
                 </div>
                 <div className="form-group">
                     <button type="button" className="btn btn-success" onClick={onAddSubmit} disabled={loading}>
@@ -49,4 +44,4 @@ const AddPersona = () => {
     );
 };
 
-export default AddPersona;
+export default AddCargo;

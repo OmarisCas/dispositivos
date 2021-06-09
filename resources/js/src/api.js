@@ -24,4 +24,17 @@ export default {
         axios.put(`${BASE_API_URL}/dispositivos/${id}`, dispositivo),
     deleteDispositivo: (id) =>
         axios.delete(`${BASE_API_URL}/dispositivos/${id}`),
+
+    getAllCargos: () =>
+        axios.get(`${BASE_API_URL}/cargos`),
+    getOneCargo: (id) =>
+        axios.get(`${BASE_API_URL}/cargos/${id}/edit`),
+    addCargo: (cargo) =>
+        axios.post(`${BASE_API_URL}/cargos`, cargo),
+    updateCargo: (cargo, id) =>
+        axios.put(`${BASE_API_URL}/cargos/${id}`, cargo),
+    deleteCargo: (id) =>
+        axios.delete(`${BASE_API_URL}/cargos/${id}`),
+
+    
 }

@@ -66,6 +66,7 @@ const HomeDispositivo = () => {
     return(
         <AppContainer title="Dispositivos">
             <Link to="/adddispositivo" className="btn btn-primary">Agregar Dispositivo</Link>
+            <Link to="/cargos" className="btn btn-secundary">Cargos</Link>
             <Link to="/personas" className="btn btn-secundary">Personas</Link>
             <div className="table-responsive">
                 <table className="table table-striped mt-4">
