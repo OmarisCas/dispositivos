@@ -266,6 +266,7 @@ INSERT INTO `dispositivos`.`cargos` (`id`, `nombre`, `descripcion`) VALUES ('9',
 INSERT INTO `dispositivos`.`cargos` (`id`, `nombre`, `descripcion`) VALUES ('10', 'vigilante', 'labores varias');
 
 
-INSERT INTO `dispositivos`.`estados` (`id`, `nombre`) VALUES ('0', 'Offline');
-INSERT INTO `dispositivos`.`estados` (`id`, `nombre`) VALUES ('1', 'Online');
+INSERT INTO `dispositivos`.`estados` (`id`, `codigo`, `nombre`) VALUES ('1', '0', 'offline');
+INSERT INTO `dispositivos`.`estados` (`id`, `codigo`, `nombre`) VALUES ('2', '1', 'online');
+
 

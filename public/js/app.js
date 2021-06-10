@@ -71179,8 +71179,9 @@ var AddDispositivo = function AddDispositivo() {
     title: "Agregar Dispositivo"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "form-group"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", null, "MAC"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", null, "MAC"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
     className: "form-control",
+    type: "text",
     value: mac,
     onChange: function onChange(e) {
       return setMac(e.target.value);
@@ -71218,7 +71219,9 @@ var AddDispositivo = function AddDispositivo() {
       return setPersona_id(e.target.value);
     },
     className: "form-control"
-  }, personas.map(function (persona) {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
+    selected: true
+  }, "Seleccione due\xF1o"), personas.map(function (persona) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
       key: persona.id,
       value: persona.id
@@ -71334,7 +71337,7 @@ var AddEstado = function AddEstado() {
     title: "Agregar Estado"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "form-group"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", null, "Longitud"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", null, "Nombre"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
     className: "form-control",
     type: "text",
     value: nombre,
@@ -71619,7 +71622,9 @@ var AddPersona = function AddPersona() {
       return setCargo_id(e.target.value);
     },
     className: "form-control"
-  }, cargos.map(function (cargo) {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
+    selected: true
+  }, "Seleccione cargo"), cargos.map(function (cargo) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
       key: cargo.id,
       value: cargo.id
@@ -71960,8 +71965,9 @@ var EditDispositivo = function EditDispositivo() {
     title: "Editar Dispositivo"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "form-group"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", null, "Mac"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", null, "Mac"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
     className: "form-control",
+    type: "text",
     value: mac,
     onChange: function onChange(e) {
       return setMac(e.target.value);

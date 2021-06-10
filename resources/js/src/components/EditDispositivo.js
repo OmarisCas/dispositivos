@@ -53,7 +53,7 @@ const EditDispositivo = () => {
             <form>
                 <div className="form-group">
                     <label>Mac</label>
-                    <textarea className="form-control" value={mac} onChange={e => setMac(e.target.value)} ></textarea>
+                    <input className="form-control" type="text" value={mac} onChange={e => setMac(e.target.value)} />
                 </div>
                 <div className="form-group">
                     <label>Nombre</label>

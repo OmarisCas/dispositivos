@@ -26,7 +26,7 @@ const AddEstado = () => {
         <AppContainer title="Agregar Estado">
             <form>
                 <div className="form-group">
-                    <label>Longitud</label>
+                    <label>Nombre</label>
                     <input className="form-control" type="text" value={nombre} onChange={e => setNombre(e.target.value)} />
                 </div>
                 <div className="form-group">

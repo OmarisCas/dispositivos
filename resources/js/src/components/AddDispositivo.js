@@ -43,7 +43,7 @@ const AddDispositivo = () => {
             <form>
                 <div className="form-group">
                     <label>MAC</label>
-                    <textarea className="form-control" value={mac} onChange={e => setMac(e.target.value)} ></textarea>
+                    <input className="form-control" type="text" value={mac} onChange={e => setMac(e.target.value)} />
                 </div>
                 <div className="form-group">
                     <label>Nombre</label>
@@ -59,9 +59,10 @@ const AddDispositivo = () => {
                 </div>
                 <div className="form-group">
                     <label>Dueño</label>
-                    <select onChange={e => setPersona_id(e.target.value)} className="form-control"> 
+                    <select onChange={e => setPersona_id(e.target.value)} className="form-control">
+                        <option selected>Seleccione dueño</option>
                         {personas.map(persona => 
-                            <option key={persona.id} value={persona.id}>{persona.nombre +" "+ persona.apellido}</option>
+                            <option key={persona.id} value={persona.id}>{persona.nombre+" "+persona.apellido}</option>
                         )}
                     </select>
                 </div>
