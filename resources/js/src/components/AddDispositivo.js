@@ -60,7 +60,7 @@ const AddDispositivo = () => {
                 <div className="form-group">
                     <label>Dueño</label>
                     <select onChange={e => setPersona_id(e.target.value)} className="form-control">
-                        <option selected>Seleccione dueño</option>
+                        <option selected>---------</option>
                         {personas.map(persona => 
                             <option key={persona.id} value={persona.id}>{persona.nombre+" "+persona.apellido}</option>
                         )}

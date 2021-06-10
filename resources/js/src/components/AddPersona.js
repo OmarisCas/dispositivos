@@ -50,7 +50,7 @@ const AddPersona = () => {
                 <div className="form-group">
                     <label>Cargo</label>
                     <select onChange={e => setCargo_id(e.target.value)} className="form-control">
-                        <option selected>Seleccione cargo</option>
+                        <option selected>---------</option>
                         {cargos.map(cargo => 
                             <option key={cargo.id} value={cargo.id}>{cargo.nombre}</option>
                         )}
