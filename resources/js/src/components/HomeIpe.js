@@ -3,54 +3,53 @@ import { Link } from 'react-router-dom';
 import AppContainer from './AppContainer';
 import api from '../api';
 
-const HomeCargo = () => {
-    const [cargos, setCargos] = useState(null);
+const HomeIpe = () => {
+    const [ipes, setIpes] = useState(null);
 
-    const fetchCargos = () => {
-        api.getAllCargos().then(res => {
+    const fetchIpes = () => {
+        api.getAllIpes().then(res => {
             const result = res.data;
-            setCargos(result.data)
+            setIpes(result.data)
         });
     }
 
     useEffect(() => {
-        fetchCargos();
+        fetchIpes();
     }, []);
 
-    const renderCargos = () => {
-        if(!cargos){
+    const renderIpes = () => {
+        if(!ipes){
             return (
                 <tr>
                     <td colSpan="10">
-                        Cargando cargos...
+                        Cargando IP'S...
                     </td>
                 </tr>
             );
         }
-        if(cargos.length === 0){
+        if(ipes.length === 0){
             return (
                 <tr>
                     <td colSpan="10">
-                        No hay cargos, agrega uno.
+                        No hay IP'S, agrega una.
                     </td>
                 </tr>
             );
         }
 
-        return cargos.map((cargo) => (
+        return ipes.map((ipe) => (
             <tr>
-                <td>{cargo.id}</td>
-                <td>{cargo.nombre}</td>
-                <td>{cargo.descripcion}</td>
+                <td>{ipe.id}</td>
+                <td>{ipe.longitud}</td>
                 <td>
-                    <Link className="btn btn-warning" to={`/editcar/${cargo.id}`}>
+                    <Link className="btn btn-warning" to={`/editipe/${ipe.id}`}>
                         EDITAR
                     </Link>
                     <button type="button" className="btn btn-danger" onClick={() => {
-                        api.deleteCargo(cargo.id)
-                        .then(fetchCargos)
+                        api.deleteIpe(ipe.id)
+                        .then(fetchIpes)
                         .catch(err => {
-                            alert('Fallo al eliminar cargo con id :' + cargo.id);
+                            alert('Fallo al eliminar IP con id :' + ipe.id);
                         });
                     }}>
                         ELIMINAR
@@ -61,24 +60,23 @@ const HomeCargo = () => {
     }
 
     return(
-        <AppContainer title="Cargos">
-            <Link to="/addcargo" className="btn btn-primary">Agregar Cargo</Link>
+        <AppContainer title="Direcciones IP'S">
+            <Link to="/addipe" className="btn btn-primary">Agregar IP</Link>
+            <Link to="/cargos" className="btn btn-secundary">Cargos</Link>
             <Link to="/dispositivos" className="btn btn-secundary">Dispositivos</Link>
             <Link to="/estados" className="btn btn-secundary">Estados</Link>
-            <Link to="/ipes" className="btn btn-secundary">IP's</Link>
             <Link to="/personas" className="btn btn-secundary">Personas</Link>
             <div className="table-responsive">
                 <table className="table table-striped mt-4">
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Nombre</th>
-                            <th>Descripcion</th>
+                            <th>Longitud</th>
                             <th>Accion</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {renderCargos()}
+                        {renderIpes()}
                     </tbody>
                 </table>
             </div>
@@ -86,4 +84,4 @@ const HomeCargo = () => {
     );
 };
 
-export default HomeCargo;
+export default HomeIpe;

@@ -19,4 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });*/
 Route::resource('cargos', 'CargoController');
 Route::resource('dispositivos', 'DispositivoController');
+Route::resource('estados', 'EstadoController');
+Route::resource('ipes', 'IpeController');
 Route::resource('personas', 'PersonaController');

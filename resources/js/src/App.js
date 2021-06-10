@@ -8,12 +8,18 @@ import {
 import HomePersona from './components/HomePersona';
 import HomeDispositivo from './components/HomeDispositivo';
 import HomeCargo from './components/HomeCargo';
+import HomeIpe from './components/HomeIpe';
+import HomeEstado from './components/HomeEstado';
 import AddPersona from './components/AddPersona';
 import AddDispositivo from './components/AddDispositivo';
 import AddCargo from './components/AddCargo';
+import AddIpe from './components/AddIpe';
+import AddEstado from './components/AddEstado';
 import EditPersona from './components/EditPersona';
 import EditDispositivo from './components/EditDispositivo';
 import EditCargo from './components/EditCargo';
+import EditIpe from './components/EditIpe';
+import EditEstado from './components/EditEstado';
 
 const App = () => {
     return(
@@ -28,6 +34,12 @@ const App = () => {
                 <Route exact path="/cargos">
                     <HomeCargo />
                 </Route>
+                <Route exact path="/ipes">
+                    <HomeIpe />
+                </Route>
+                <Route exact path="/estados">
+                    <HomeEstado />
+                </Route>
                 <Route path="/addpersona">
                     <AddPersona />
                 </Route>
@@ -37,6 +49,12 @@ const App = () => {
                 <Route path="/addcargo">
                     <AddCargo />
                 </Route>
+                <Route path="/addipe">
+                    <AddIpe />
+                </Route>
+                <Route path="/addest">
+                    <AddEstado />
+                </Route>
                 <Route path="/editpers/:id">
                     <EditPersona />
                 </Route>
@@ -45,6 +63,12 @@ const App = () => {
                 </Route>
                 <Route path="/editcar/:id">
                     <EditCargo />
+                </Route>
+                <Route path="/editipe/:id">
+                    <EditIpe />
+                </Route>
+                <Route path="/editest/:id">
+                    <EditEstado />
                 </Route>
             </Switch>
         </Router>

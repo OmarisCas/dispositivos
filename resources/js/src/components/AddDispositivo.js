@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from "react-router-dom";
 import AppContainer from './AppContainer';
 import api from '../api';
@@ -11,6 +11,7 @@ const AddDispositivo = () => {
     const [marca, setMarca] = useState('');
     const [modelo, setModelo] = useState('');
     const [persona_id, setPersona_id] = useState('');
+    const [personas, setPersonas] = useState([]);
 
     const onAddSubmit = async () => {
         setLoading(true);
@@ -25,6 +26,17 @@ const AddDispositivo = () => {
             setLoading(false);
         }
     };
+
+    const fetchPersonas = () => {
+        api.getAllPersonas().then(res => {
+            const result = res.data;
+            setPersonas(result.data)
+        });
+    }
+
+    useEffect(() => {
+        fetchPersonas();
+    }, []);
 
     return(
         <AppContainer title="Agregar Dispositivo">
@@ -46,8 +58,12 @@ const AddDispositivo = () => {
                     <input className="form-control" type="text" value={modelo} onChange={e => setModelo(e.target.value)} />
                 </div>
                 <div className="form-group">
-                    <label>Persona_id</label>
-                    <input className="form-control" type="text" value={persona_id} onChange={e => setPersona_id(e.target.value)} />
+                    <label>Dueño</label>
+                    <select onChange={e => setPersona_id(e.target.value)} className="form-control"> 
+                        {personas.map(persona => 
+                            <option key={persona.id} value={persona.id}>{persona.nombre +" "+ persona.apellido}</option>
+                        )}
+                    </select>
                 </div>
                 <div className="form-group">
                     <button type="button" className="btn btn-success" onClick={onAddSubmit} disabled={loading}>

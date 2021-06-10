@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Resources\Cargo as CargoResource;
-use App\{Cargo, Persona};
+use App\Http\Resources\Estado as EstadoResource;
+use App\{Estado};
 
-class CargoController extends Controller
+class EstadoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class CargoController extends Controller
      */
     public function index()
     {
-        return CargoResource::collection(Cargo::all());
+        return EstadoResource::collection(Estado::all());
     }
 
     /**
@@ -28,15 +28,13 @@ class CargoController extends Controller
     {
         $request->validate([
             'nombre' => 'required',
-            'descripcion' => 'required',
         ]);
-        $cargo = new Cargo([
+        $estado = new Estado([
             'nombre' => $request->nombre,
-            'descripcion' => $request->descripcion,
         ]);
-        $cargo->save();
+        $estado->save();
         return response()->json([
-            'data' => 'Cargo creado!'
+            'data' => 'Estado creado!'
         ]);
     }
 
@@ -48,7 +46,7 @@ class CargoController extends Controller
      */
     public function edit($id)
     {
-        return new CargoResource(Cargo::findOrFail($id));
+        return new EstadoResource(Estado::findOrFail($id));
     }
 
     /**
@@ -62,15 +60,13 @@ class CargoController extends Controller
     {
         $request->validate([
             'nombre' => 'required',
-            'descripcion' => 'required',
         ]);
-        $cargo = Cargo::findOrFail($id);
-        $cargo->nombre = $request->nombre;
-        $cargo->descripcion = $request->descripcion;
-        $cargo->save();
+        $estado = Estado::findOrFail($id);
+        $estado->nombre = $request->nombre;
+        $estado->save();
 
         return response()->json([
-            'data' => 'Cargo actualizado!'
+            'data' => 'Estado actualizado!'
         ]);
     }
 
@@ -82,11 +78,11 @@ class CargoController extends Controller
      */
     public function destroy($id)
     {
-        $cargo = Cargo::findOrFail($id);
-        $cargo->delete();
+        $estado = Estado::findOrFail($id);
+        $estado->delete();
 
         return response()->json([
-            'data' => 'Cargo eliminado!'
+            'data' => 'Estado eliminado!'
         ]);
     }
 }

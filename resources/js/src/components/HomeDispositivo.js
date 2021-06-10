@@ -5,6 +5,7 @@ import api from '../api';
 
 const HomeDispositivo = () => {
     const [dispositivos, setDispositivos] = useState(null);
+    const [personas, setPersonas] = useState([]);
 
     const fetchDispositivos = () => {
         api.getAllDispositivos().then(res => {
@@ -13,8 +14,16 @@ const HomeDispositivo = () => {
         });
     }
 
+    const fetchPersonas = () => {
+        api.getAllPersonas().then(res => {
+            const result = res.data;
+            setPersonas(result.data)
+        });
+    }
+
     useEffect(() => {
         fetchDispositivos();
+        fetchPersonas();
     }, []);
 
     const renderDispositivos = () => {
@@ -44,7 +53,13 @@ const HomeDispositivo = () => {
                 <td>{dispositivo.nombre}</td>
                 <td>{dispositivo.marca}</td>
                 <td>{dispositivo.modelo}</td>
-                <td>{dispositivo.persona_id}</td>
+
+                {personas.map(persona => {
+                    if( dispositivo.persona_id === persona.id ){
+                        return <td>{persona.nombre+" "+persona.apellido}</td>
+                    }}
+                )}
+
                 <td>
                     <Link className="btn btn-warning" to={`/editdisp/${dispositivo.id}`}>
                         EDITAR
@@ -67,6 +82,8 @@ const HomeDispositivo = () => {
         <AppContainer title="Dispositivos">
             <Link to="/adddispositivo" className="btn btn-primary">Agregar Dispositivo</Link>
             <Link to="/cargos" className="btn btn-secundary">Cargos</Link>
+            <Link to="/estados" className="btn btn-secundary">Estados</Link>
+            <Link to="/ipes" className="btn btn-secundary">IP's</Link>
             <Link to="/personas" className="btn btn-secundary">Personas</Link>
             <div className="table-responsive">
                 <table className="table table-striped mt-4">
@@ -77,7 +94,7 @@ const HomeDispositivo = () => {
                             <th>Nombre</th>
                             <th>Marca</th>
                             <th>Modelo</th>
-                            <th>Persona</th>
+                            <th>Dueño</th>
                             <th>Accion</th>
                         </tr>
                     </thead>

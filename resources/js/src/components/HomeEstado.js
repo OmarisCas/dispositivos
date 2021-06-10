@@ -3,70 +3,53 @@ import { Link } from 'react-router-dom';
 import AppContainer from './AppContainer';
 import api from '../api';
 
-const HomePersona = () => {
-    const [personas, setPersonas] = useState(null);
-    const [cargos, setCargos] = useState([]);
+const HomeEstado = () => {
+    const [estados, setEstados] = useState(null);
 
-    const fetchPersonas = () => {
-        api.getAllPersonas().then(res => {
+    const fetchEstados = () => {
+        api.getAllEstados().then(res => {
             const result = res.data;
-            setPersonas(result.data)
-        });
-    }
-
-    const fetchCargos = () => {
-        api.getAllCargos().then(res => {
-            const result = res.data;
-            setCargos(result.data)
+            setEstados(result.data)
         });
     }
 
     useEffect(() => {
-        fetchPersonas();
-        fetchCargos();
+        fetchEstados();
     }, []);
 
-    const renderPersonas = () => {
-        if(!personas){
+    const renderEstados = () => {
+        if(!estados){
             return (
                 <tr>
                     <td colSpan="10">
-                        Cargando personas...
+                        Cargando Estados...
                     </td>
                 </tr>
             );
         }
-        if(personas.length === 0){
+        if(estados.length === 0){
             return (
                 <tr>
                     <td colSpan="10">
-                        No hay personas, agrega una.
+                        No hay Estados, agrega uno.
                     </td>
                 </tr>
             );
         }
 
-        return personas.map((persona, index) => (
+        return estados.map((estado) => (
             <tr>
-                <td>{persona.id}</td>
-                <td>{persona.nombre}</td>
-                <td>{persona.apellido}</td>
-                
-                {cargos.map(cargo => {
-                    if( persona.cargo_id === cargo.id ){
-                        return <td>{cargo.nombre}</td>
-                    }}
-                )}
-                
+                <td>{estado.id}</td>
+                <td>{estado.nombre}</td>
                 <td>
-                    <Link className="btn btn-warning" to={`/editpers/${persona.id}`}>
+                    <Link className="btn btn-warning" to={`/editest/${estado.id}`}>
                         EDITAR
                     </Link>
                     <button type="button" className="btn btn-danger" onClick={() => {
-                        api.deletePersona(persona.id)
-                        .then(fetchPersonas)
+                        api.deleteEstado(estado.id)
+                        .then(fetchEstados)
                         .catch(err => {
-                            alert('Fallo al eliminar persona con id :' + persona.id);
+                            alert('Fallo al eliminar estado con id :' + ipe.id);
                         });
                     }}>
                         ELIMINAR
@@ -77,25 +60,23 @@ const HomePersona = () => {
     }
 
     return(
-        <AppContainer title="Personas">
-            <Link to="/addpersona" className="btn btn-primary">Agregar Persona</Link>
+        <AppContainer title="Estados de la conexión">
+            <Link to="/addest" className="btn btn-primary">Agregar Estado</Link>
             <Link to="/cargos" className="btn btn-secundary">Cargos</Link>
             <Link to="/dispositivos" className="btn btn-secundary">Dispositivos</Link>
-            <Link to="/estados" className="btn btn-secundary">Estados</Link>
             <Link to="/ipes" className="btn btn-secundary">IP's</Link>
+            <Link to="/personas" className="btn btn-secundary">Personas</Link>
             <div className="table-responsive">
                 <table className="table table-striped mt-4">
                     <thead>
                         <tr>
                             <th>ID</th>
                             <th>Nombre</th>
-                            <th>Apellido</th>
-                            <th>Cargo</th>
                             <th>Accion</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {renderPersonas()}
+                        {renderEstados()}
                     </tbody>
                 </table>
             </div>
@@ -103,4 +84,4 @@ const HomePersona = () => {
     );
 };
 
-export default HomePersona;
+export default HomeEstado;

@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Resources\Cargo as CargoResource;
-use App\{Cargo, Persona};
+use App\Http\Resources\Ipe as IpeResource;
+use App\{Ipe};
 
-class CargoController extends Controller
+class IpeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class CargoController extends Controller
      */
     public function index()
     {
-        return CargoResource::collection(Cargo::all());
+        return IpeResource::collection(Ipe::all());
     }
 
     /**
@@ -27,16 +27,14 @@ class CargoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nombre' => 'required',
-            'descripcion' => 'required',
+            'longitud' => 'required',
         ]);
-        $cargo = new Cargo([
-            'nombre' => $request->nombre,
-            'descripcion' => $request->descripcion,
+        $ipe = new Ipe([
+            'longitud' => $request->longitud,
         ]);
-        $cargo->save();
+        $ipe->save();
         return response()->json([
-            'data' => 'Cargo creado!'
+            'data' => 'IP creada!'
         ]);
     }
 
@@ -48,7 +46,7 @@ class CargoController extends Controller
      */
     public function edit($id)
     {
-        return new CargoResource(Cargo::findOrFail($id));
+        return new IpeResource(Ipe::findOrFail($id));
     }
 
     /**
@@ -61,16 +59,14 @@ class CargoController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nombre' => 'required',
-            'descripcion' => 'required',
+            'longitud' => 'required',
         ]);
-        $cargo = Cargo::findOrFail($id);
-        $cargo->nombre = $request->nombre;
-        $cargo->descripcion = $request->descripcion;
-        $cargo->save();
+        $ipe = Ipe::findOrFail($id);
+        $ipe->longitud = $request->longitud;
+        $ipe->save();
 
         return response()->json([
-            'data' => 'Cargo actualizado!'
+            'data' => 'IP actualizada!'
         ]);
     }
 
@@ -82,11 +78,11 @@ class CargoController extends Controller
      */
     public function destroy($id)
     {
-        $cargo = Cargo::findOrFail($id);
-        $cargo->delete();
+        $ipe = Ipe::findOrFail($id);
+        $ipe->delete();
 
         return response()->json([
-            'data' => 'Cargo eliminado!'
+            'data' => 'IP eliminada!'
         ]);
     }
 }

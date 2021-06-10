@@ -35,5 +35,27 @@ export default {
         axios.put(`${BASE_API_URL}/cargos/${id}`, cargo),
     deleteCargo: (id) =>
         axios.delete(`${BASE_API_URL}/cargos/${id}`),
+
+    getAllIpes: () =>
+        axios.get(`${BASE_API_URL}/ipes`),
+    getOneIpe: (id) =>
+        axios.get(`${BASE_API_URL}/ipes/${id}/edit`),
+    addIpe: (ipe) =>
+        axios.post(`${BASE_API_URL}/ipes`, ipe),
+    updateIpe: (ipe, id) =>
+        axios.put(`${BASE_API_URL}/ipes/${id}`, ipe),
+    deleteIpe: (id) =>
+        axios.delete(`${BASE_API_URL}/ipes/${id}`),
+
+    getAllEstados: () =>
+        axios.get(`${BASE_API_URL}/estados`),
+    getOneEstado: (id) =>
+        axios.get(`${BASE_API_URL}/estados/${id}/edit`),
+    addEstado: (estado) =>
+        axios.post(`${BASE_API_URL}/estados`, estado),
+    updateEstado: (estado, id) =>
+        axios.put(`${BASE_API_URL}/estados/${id}`, estado),
+    deleteEstado: (id) =>
+        axios.delete(`${BASE_API_URL}/estados/${id}`),
             
 }

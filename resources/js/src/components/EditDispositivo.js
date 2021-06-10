@@ -12,6 +12,7 @@ const EditDispositivo = () => {
     const [marca, setMarca] = useState('');
     const [modelo, setModelo] = useState('');
     const [persona_id, setPersona_id] = useState('');
+    const [personas, setPersonas] = useState([]);
 
     const onEditSubmit = async () => {
         setLoading(true);
@@ -27,6 +28,13 @@ const EditDispositivo = () => {
         }
     };
 
+    const fetchPersonas = () => {
+        api.getAllPersonas().then(res => {
+            const result = res.data;
+            setPersonas(result.data)
+        });
+    }
+
     useEffect(() => {
         api.getOneDispositivo(id).then(res => {
             const result = res.data;
@@ -37,6 +45,7 @@ const EditDispositivo = () => {
             setModelo(dispositivo.modelo);
             setPersona_id(dispositivo.persona_id);
         })
+        fetchPersonas();
     }, []);
 
     return(
@@ -59,8 +68,12 @@ const EditDispositivo = () => {
                     <input className="form-control" type="text" value={modelo} onChange={e => setModelo(e.target.value)} />
                 </div>
                 <div className="form-group">
-                    <label>Persona_id</label>
-                    <input className="form-control" type="text" value={persona_id} onChange={e => setPersona_id(e.target.value)} />
+                    <label>Dueño</label>
+                    <select onChange={e => setPersona_id(e.target.value)} className="form-control">
+                        {personas.map(persona =>
+                            <option selected={persona_id == persona.id} key={persona.id} value={persona.id}>{persona.nombre+" "+persona.apellido}</option>
+                        )}
+                    </select>
                 </div>
                 <div className="form-group">
                     <button type="button" className="btn btn-success" onClick={onEditSubmit} disabled={loading}>
