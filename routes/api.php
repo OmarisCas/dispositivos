@@ -22,3 +22,4 @@ Route::resource('dispositivos', 'DispositivoController');
 Route::resource('estados', 'EstadoController');
 Route::resource('ipes', 'IpeController');
 Route::resource('personas', 'PersonaController');
+Route::resource('conexiones', 'ConexioneController');

@@ -7,6 +7,9 @@ use App\Persona;
 
 class Dispositivo extends Model
 {
+    /**
+     * Campos a actualizar.
+     */
     protected $fillable = [
         'mac', 'nombre', 'marca', 'modelo', 'persona_id'
     ];
@@ -17,5 +20,10 @@ class Dispositivo extends Model
     public function persona() //persona->nombre
     {
         return $this->belongsTo('App\Persona');
+    }
+
+    public function ipes(){
+        return $this->belongsToMany('App\Ipe', 'conexiones')->withTimesTamps();
+        //return $this->belongsToMany('App\Empleado', 'registros')->withPivot('carne_id');
     }
 }

@@ -39,7 +39,7 @@ const HomeEstado = () => {
 
         return estados.map((estado) => (
             <tr>
-                <td>{estado.id}</td>
+                <td>{estado.codigo}</td>
                 <td>{estado.nombre}</td>
                 <td>
                     <Link className="btn btn-warning" to={`/editest/${estado.id}`}>
@@ -70,7 +70,7 @@ const HomeEstado = () => {
                 <table className="table table-striped mt-4">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>Código</th>
                             <th>Nombre</th>
                             <th>Accion</th>
                         </tr>

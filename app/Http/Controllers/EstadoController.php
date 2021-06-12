@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Resources\Estado as EstadoResource;
-use App\{Estado};
+use App\{Estado, Conexione};
 
 class EstadoController extends Controller
 {
@@ -27,9 +27,11 @@ class EstadoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'codigo' => 'required',
             'nombre' => 'required',
         ]);
         $estado = new Estado([
+            'codigo' => 'required',
             'nombre' => $request->nombre,
         ]);
         $estado->save();
@@ -59,9 +61,11 @@ class EstadoController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
+            'codigo' => 'required',
             'nombre' => 'required',
         ]);
         $estado = Estado::findOrFail($id);
+        $estado->codigo = $request->codigo;
         $estado->nombre = $request->nombre;
         $estado->save();
 

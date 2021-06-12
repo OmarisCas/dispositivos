@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class Estado extends JsonResource
+class Conexione extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,8 +16,9 @@ class Estado extends JsonResource
     {
         return [
             'id' => $this->id,
-            'codigo' => $this->codigo,
-            'nombre' => $this->nombre,
+            'dispositivo_id' => $this->dispositivo_id,
+            'ipe_id' => $this->ipe_id,
+            'estado_id' => $this->estado_id,
         ];
     }
 }

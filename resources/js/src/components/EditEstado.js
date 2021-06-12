@@ -7,13 +7,14 @@ const EditEstado = () => {
     const { id } = useParams();
     const history = useHistory();
     const [loading, setLoading] = useState(false);
+    const [codigo, setCodigo] = useState('');
     const [nombre, setNombre] = useState('');
 
     const onEditSubmit = async () => {
         setLoading(true);
         try {
             await api.updateEstado({
-                nombre
+                codigo, nombre
             }, id);
             history.push('/estados');
         } catch {
@@ -27,6 +28,7 @@ const EditEstado = () => {
         api.getOneEstado(id).then(res => {
             const result = res.data;
             const estado = result.data;
+            setCodigo(estado.codigo);
             setNombre(estado.nombre);
         })
     }, []);
@@ -34,6 +36,10 @@ const EditEstado = () => {
     return(
         <AppContainer title="Editar Estado">
             <form>
+                <div className="form-group">
+                    <label>Código</label>
+                    <input className="form-control" type="number" value={codigo} onChange={e => setCodigo(e.target.value)} />
+                </div>
                 <div className="form-group">
                     <label>Nombre</label>
                     <input className="form-control" type="text" value={nombre} onChange={e => setNombre(e.target.value)} />

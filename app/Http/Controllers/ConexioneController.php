@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Resources\Ipe as IpeResource;
-use App\{Ipe, Conexione};
+use App\Http\Resources\Conexione as ConexioneResource;
+use App\{Conexione, Dispositivo, Ipe, Estado};
 
-class IpeController extends Controller
+class ConexioneController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class IpeController extends Controller
      */
     public function index()
     {
-        return IpeResource::collection(Ipe::all());
+        return ConexioneResource::collection(Conexione::all());
     }
 
     /**
@@ -27,14 +27,18 @@ class IpeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'longitud' => 'required',
+            'dispositivo_id' => 'required',
+            'ipe_id' => 'required',
+            'estado_id' => 'required',
         ]);
-        $ipe = new Ipe([
-            'longitud' => $request->longitud,
+        $conexione = new Conexione([
+            'dispositivo_id' => $request->dispositivo_id,
+            'ipe_id' => $request->ipe_id,
+            'estado_id' => $request->estado_id,
         ]);
-        $ipe->save();
+        $conexione->save();
         return response()->json([
-            'data' => 'IP creada!'
+            'data' => 'Conexión creada!'
         ]);
     }
 
@@ -46,7 +50,7 @@ class IpeController extends Controller
      */
     public function edit($id)
     {
-        return new IpeResource(Ipe::findOrFail($id));
+        return new ConexioneResource(Conexione::findOrFail($id));
     }
 
     /**
@@ -59,14 +63,18 @@ class IpeController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'longitud' => 'required',
+            'dispositivo_id' => 'required',
+            'ipe_id' => 'required',
+            'estado_id' => 'required',
         ]);
-        $ipe = Ipe::findOrFail($id);
-        $ipe->longitud = $request->longitud;
-        $ipe->save();
+        $conexione = Conexione::findOrFail($id);
+        $conexione->dispositivo_id = $request->dispositivo_id;
+        $conexione->ipe_id = $request->ipe_id;
+        $conexione->estado_id = $request->estado_id;
+        $conexione->save();
 
         return response()->json([
-            'data' => 'IP actualizada!'
+            'data' => 'Conexion actualizada!'
         ]);
     }
 
@@ -78,11 +86,11 @@ class IpeController extends Controller
      */
     public function destroy($id)
     {
-        $ipe = Ipe::findOrFail($id);
-        $ipe->delete();
+        $conexione = Conexione::findOrFail($id);
+        $conexione->delete();
 
         return response()->json([
-            'data' => 'IP eliminada!'
+            'data' => 'Conexion eliminada!'
         ]);
     }
 }

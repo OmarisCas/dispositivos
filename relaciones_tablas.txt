@@ -1,0 +1,6 @@
+-------------------------------------------------
+carnes		----> registros	 <----empleados
+dispositivos	----> conexiones <----ipes
+-------------------------------------------------
+carnes		----> registros
+estados		----> conexiones
