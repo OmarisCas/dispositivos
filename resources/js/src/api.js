@@ -3,6 +3,7 @@ const axios = window.axios;
 const BASE_API_URL = 'http://localhost:8000/api'
 
 export default {
+    //PERSONAS
     getAllPersonas: () => 
         axios.get(`${BASE_API_URL}/personas`),
     getOnePersona: (id) =>
@@ -14,6 +15,7 @@ export default {
     deletePersona: (id) =>
         axios.delete(`${BASE_API_URL}/personas/${id}`),
 
+    //DISPOSITIVOS
     getAllDispositivos: () => 
         axios.get(`${BASE_API_URL}/dispositivos`),
     getOneDispositivo: (id) =>
@@ -25,6 +27,7 @@ export default {
     deleteDispositivo: (id) =>
         axios.delete(`${BASE_API_URL}/dispositivos/${id}`),
 
+    //CARGOS
     getAllCargos: () =>
         axios.get(`${BASE_API_URL}/cargos`),
     getOneCargo: (id) =>
@@ -36,6 +39,7 @@ export default {
     deleteCargo: (id) =>
         axios.delete(`${BASE_API_URL}/cargos/${id}`),
 
+    //IPES
     getAllIpes: () =>
         axios.get(`${BASE_API_URL}/ipes`),
     getAllIpesOff: () =>
@@ -49,6 +53,7 @@ export default {
     deleteIpe: (id) =>
         axios.delete(`${BASE_API_URL}/ipes/${id}`),
 
+    //ESTADOS
     getAllEstados: () =>
         axios.get(`${BASE_API_URL}/estados`),
     getOneEstado: (id) =>
@@ -60,6 +65,7 @@ export default {
     deleteEstado: (id) =>
         axios.delete(`${BASE_API_URL}/estados/${id}`),
 
+    //CONEXIONES
     getAllConexiones: () =>
         axios.get(`${BASE_API_URL}/conexiones`),
     getOneConexione: (id) =>

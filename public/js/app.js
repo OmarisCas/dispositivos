@@ -70845,6 +70845,7 @@ __webpack_require__.r(__webpack_exports__);
 var axios = window.axios;
 var BASE_API_URL = 'http://localhost:8000/api';
 /* harmony default export */ __webpack_exports__["default"] = ({
+  //PERSONAS
   getAllPersonas: function getAllPersonas() {
     return axios.get("".concat(BASE_API_URL, "/personas"));
   },
@@ -70860,6 +70861,7 @@ var BASE_API_URL = 'http://localhost:8000/api';
   deletePersona: function deletePersona(id) {
     return axios["delete"]("".concat(BASE_API_URL, "/personas/").concat(id));
   },
+  //DISPOSITIVOS
   getAllDispositivos: function getAllDispositivos() {
     return axios.get("".concat(BASE_API_URL, "/dispositivos"));
   },
@@ -70875,6 +70877,7 @@ var BASE_API_URL = 'http://localhost:8000/api';
   deleteDispositivo: function deleteDispositivo(id) {
     return axios["delete"]("".concat(BASE_API_URL, "/dispositivos/").concat(id));
   },
+  //CARGOS
   getAllCargos: function getAllCargos() {
     return axios.get("".concat(BASE_API_URL, "/cargos"));
   },
@@ -70890,6 +70893,7 @@ var BASE_API_URL = 'http://localhost:8000/api';
   deleteCargo: function deleteCargo(id) {
     return axios["delete"]("".concat(BASE_API_URL, "/cargos/").concat(id));
   },
+  //IPES
   getAllIpes: function getAllIpes() {
     return axios.get("".concat(BASE_API_URL, "/ipes"));
   },
@@ -70908,6 +70912,7 @@ var BASE_API_URL = 'http://localhost:8000/api';
   deleteIpe: function deleteIpe(id) {
     return axios["delete"]("".concat(BASE_API_URL, "/ipes/").concat(id));
   },
+  //ESTADOS
   getAllEstados: function getAllEstados() {
     return axios.get("".concat(BASE_API_URL, "/estados"));
   },
@@ -70923,6 +70928,7 @@ var BASE_API_URL = 'http://localhost:8000/api';
   deleteEstado: function deleteEstado(id) {
     return axios["delete"]("".concat(BASE_API_URL, "/estados/").concat(id));
   },
+  //CONEXIONES
   getAllConexiones: function getAllConexiones() {
     return axios.get("".concat(BASE_API_URL, "/conexiones"));
   },
@@ -73031,7 +73037,8 @@ var HomeCargo = function HomeCargo() {
 
   var fetchCargos = function fetchCargos() {
     _api__WEBPACK_IMPORTED_MODULE_3__["default"].getAllCargos().then(function (res) {
-      var result = res.data;
+      var result = res.data; //console.log(result);
+
       setCargos(result.data);
     });
   };

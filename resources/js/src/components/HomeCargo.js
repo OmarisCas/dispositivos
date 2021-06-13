@@ -9,6 +9,7 @@ const HomeCargo = () => {
     const fetchCargos = () => {
         api.getAllCargos().then(res => {
             const result = res.data;
+            //console.log(result);
             setCargos(result.data)
         });
     }
@@ -46,7 +47,7 @@ const HomeCargo = () => {
                     <Link className="btn btn-warning" to={`/editcar/${cargo.id}`}>
                         EDITAR
                     </Link>
-                    <button type="button" className="btn btn-danger" onClick={() => {
+                    <button type="button" className="btn btn-danger" onClick={ () => {
                         api.deleteCargo(cargo.id)
                         .then(fetchCargos)
                         .catch(err => {
