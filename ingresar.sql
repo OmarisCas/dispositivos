@@ -1,3 +1,7 @@
+INSERT INTO `dispositivos`.`estados` (`id`, `codigo`, `nombre`) VALUES ('1', '0', 'offline');
+INSERT INTO `dispositivos`.`estados` (`id`, `codigo`, `nombre`) VALUES ('2', '1', 'online');
+
+
 INSERT INTO `dispositivos`.`ipes` (`id`, `longitud`) VALUES ('1', '192.168.18.2');
 INSERT INTO `dispositivos`.`ipes` (`id`, `longitud`) VALUES ('2', '192.168.18.3');
 INSERT INTO `dispositivos`.`ipes` (`id`, `longitud`) VALUES ('4', '192.168.18.4');
@@ -266,7 +270,5 @@ INSERT INTO `dispositivos`.`cargos` (`id`, `nombre`, `descripcion`) VALUES ('9',
 INSERT INTO `dispositivos`.`cargos` (`id`, `nombre`, `descripcion`) VALUES ('10', 'vigilante', 'labores varias');
 
 
-INSERT INTO `dispositivos`.`estados` (`id`, `codigo`, `nombre`) VALUES ('1', '0', 'offline');
-INSERT INTO `dispositivos`.`estados` (`id`, `codigo`, `nombre`) VALUES ('2', '1', 'online');
 
 

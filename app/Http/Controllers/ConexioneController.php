@@ -31,12 +31,17 @@ class ConexioneController extends Controller
             'ipe_id' => 'required',
             'estado_id' => 'required',
         ]);
+        $IP = $request->ipe_id;
         $conexione = new Conexione([
             'dispositivo_id' => $request->dispositivo_id,
             'ipe_id' => $request->ipe_id,
             'estado_id' => $request->estado_id,
+            'descripcion' => $request->descripcion,
         ]);
         $conexione->save();
+        $stateIP = Ipe::find($IP);
+        $stateIP->estado_id = 2;
+        $stateIP->save();
         return response()->json([
             'data' => 'Conexión creada!'
         ]);
@@ -71,6 +76,7 @@ class ConexioneController extends Controller
         $conexione->dispositivo_id = $request->dispositivo_id;
         $conexione->ipe_id = $request->ipe_id;
         $conexione->estado_id = $request->estado_id;
+        $conexione->descripcion = $request->descripcion;
         $conexione->save();
 
         return response()->json([

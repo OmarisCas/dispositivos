@@ -19,6 +19,7 @@ class Conexione extends JsonResource
             'dispositivo_id' => $this->dispositivo_id,
             'ipe_id' => $this->ipe_id,
             'estado_id' => $this->estado_id,
+            'descripcion' => $this->descripcion,
         ];
     }
 }

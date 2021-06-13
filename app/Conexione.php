@@ -8,7 +8,7 @@ use App\{Dispositivo, Ipe, Estado};
 class Conexione extends Model
 {
     protected $fillable = [
-        'dispositivo_id', 'ipe_id', 'estado_id'
+        'dispositivo_id', 'ipe_id', 'estado_id', 'descripcion'
     ];
 
     /**

@@ -63,6 +63,7 @@ const HomeCargo = () => {
     return(
         <AppContainer title="Cargos">
             <Link to="/addcargo" className="btn btn-primary">Agregar Cargo</Link>
+            <Link to="/conexiones" className="btn btn-secundary">Conexiones</Link>
             <Link to="/dispositivos" className="btn btn-secundary">Dispositivos</Link>
             <Link to="/estados" className="btn btn-secundary">Estados</Link>
             <Link to="/ipes" className="btn btn-secundary">IP's</Link>

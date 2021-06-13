@@ -4,3 +4,6 @@ dispositivos	----> conexiones <----ipes
 -------------------------------------------------
 carnes		----> registros
 estados		----> conexiones
+-------------------------------------------------
+dispositivos	----> cargo_dispositivo
+estados		----> ipes

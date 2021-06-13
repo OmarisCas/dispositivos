@@ -21,5 +21,6 @@ Route::resource('cargos', 'CargoController');
 Route::resource('dispositivos', 'DispositivoController');
 Route::resource('estados', 'EstadoController');
 Route::resource('ipes', 'IpeController');
+Route::get('ipesoff', 'IpeController@ipesoff');
 Route::resource('personas', 'PersonaController');
 Route::resource('conexiones', 'ConexioneController');

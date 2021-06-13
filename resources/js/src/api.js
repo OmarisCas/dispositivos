@@ -38,6 +38,8 @@ export default {
 
     getAllIpes: () =>
         axios.get(`${BASE_API_URL}/ipes`),
+    getAllIpesOff: () =>
+        axios.get(`${BASE_API_URL}/ipesoff`),
     getOneIpe: (id) =>
         axios.get(`${BASE_API_URL}/ipes/${id}/edit`),
     addIpe: (ipe) =>
@@ -57,5 +59,16 @@ export default {
         axios.put(`${BASE_API_URL}/estados/${id}`, estado),
     deleteEstado: (id) =>
         axios.delete(`${BASE_API_URL}/estados/${id}`),
+
+    getAllConexiones: () =>
+        axios.get(`${BASE_API_URL}/conexiones`),
+    getOneConexione: (id) =>
+        axios.get(`${BASE_API_URL}/conexiones/${id}/edit`),
+    addConexione: (conexione) =>
+        axios.post(`${BASE_API_URL}/conexiones`, conexione),
+    updateConexione: (conexione, id) =>
+        axios.put(`${BASE_API_URL}/conexiones/${id}`, conexione),
+    deleteConexione: (id) =>
+        axios.delete(`${BASE_API_URL}/conexiones/${id}`),
             
 }

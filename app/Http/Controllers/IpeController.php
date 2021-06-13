@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Resources\Ipe as IpeResource;
-use App\{Ipe, Conexione};
+use App\{Ipe, Conexione, Estado};
 
 class IpeController extends Controller
 {
@@ -19,6 +19,16 @@ class IpeController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function ipesoff()
+    {
+        return IpeResource::collection(Ipe::where('estado_id', 1)->get());
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -28,13 +38,15 @@ class IpeController extends Controller
     {
         $request->validate([
             'longitud' => 'required',
+            'estado_id' => 'required',
         ]);
         $ipe = new Ipe([
             'longitud' => $request->longitud,
+            'estado_id' => $request->estado_id,
         ]);
         $ipe->save();
         return response()->json([
-            'data' => 'IP creada!'
+            'data' => 'Dirección IP creada!'
         ]);
     }
 
@@ -60,13 +72,15 @@ class IpeController extends Controller
     {
         $request->validate([
             'longitud' => 'required',
+            'estado_id' => 'required',
         ]);
         $ipe = Ipe::findOrFail($id);
         $ipe->longitud = $request->longitud;
+        $ipe->estado_id = $request->estado_id;
         $ipe->save();
 
         return response()->json([
-            'data' => 'IP actualizada!'
+            'data' => 'Dirección IP actualizada!'
         ]);
     }
 
@@ -82,7 +96,7 @@ class IpeController extends Controller
         $ipe->delete();
 
         return response()->json([
-            'data' => 'IP eliminada!'
+            'data' => 'Dirección IP eliminada!'
         ]);
     }
 }

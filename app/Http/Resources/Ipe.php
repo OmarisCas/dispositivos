@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Estado;
 
 class Ipe extends JsonResource
 {
@@ -17,6 +18,7 @@ class Ipe extends JsonResource
         return [
             'id' => $this->id,
             'longitud' => $this->longitud,
+            'estado_id' => $this->estado_id,
         ];
     }
 }

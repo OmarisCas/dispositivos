@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Conexione;
+use App\{Conexione, Ipe};
 
 class Estado extends Model
 {
@@ -21,6 +21,14 @@ class Estado extends Model
     public function conexiones()
     {
         return $this->hasMany('App\Conexione', 'conexiones');
+    }
+
+    /**
+     * Obtener la(s) ipe(s) asociada en ese estado.
+     */
+    public function ipes()
+    {
+        return $this->hasMany('App\Ipe', 'ipes');
     }
 
 }

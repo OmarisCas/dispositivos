@@ -70746,16 +70746,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_HomeCargo__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/HomeCargo */ "./resources/js/src/components/HomeCargo.js");
 /* harmony import */ var _components_HomeIpe__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/HomeIpe */ "./resources/js/src/components/HomeIpe.js");
 /* harmony import */ var _components_HomeEstado__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/HomeEstado */ "./resources/js/src/components/HomeEstado.js");
-/* harmony import */ var _components_AddPersona__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/AddPersona */ "./resources/js/src/components/AddPersona.js");
-/* harmony import */ var _components_AddDispositivo__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/AddDispositivo */ "./resources/js/src/components/AddDispositivo.js");
-/* harmony import */ var _components_AddCargo__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/AddCargo */ "./resources/js/src/components/AddCargo.js");
-/* harmony import */ var _components_AddIpe__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/AddIpe */ "./resources/js/src/components/AddIpe.js");
-/* harmony import */ var _components_AddEstado__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/AddEstado */ "./resources/js/src/components/AddEstado.js");
-/* harmony import */ var _components_EditPersona__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/EditPersona */ "./resources/js/src/components/EditPersona.js");
-/* harmony import */ var _components_EditDispositivo__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/EditDispositivo */ "./resources/js/src/components/EditDispositivo.js");
-/* harmony import */ var _components_EditCargo__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/EditCargo */ "./resources/js/src/components/EditCargo.js");
-/* harmony import */ var _components_EditIpe__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/EditIpe */ "./resources/js/src/components/EditIpe.js");
-/* harmony import */ var _components_EditEstado__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/EditEstado */ "./resources/js/src/components/EditEstado.js");
+/* harmony import */ var _components_HomeConexione__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/HomeConexione */ "./resources/js/src/components/HomeConexione.js");
+/* harmony import */ var _components_AddPersona__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/AddPersona */ "./resources/js/src/components/AddPersona.js");
+/* harmony import */ var _components_AddDispositivo__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/AddDispositivo */ "./resources/js/src/components/AddDispositivo.js");
+/* harmony import */ var _components_AddCargo__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/AddCargo */ "./resources/js/src/components/AddCargo.js");
+/* harmony import */ var _components_AddIpe__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/AddIpe */ "./resources/js/src/components/AddIpe.js");
+/* harmony import */ var _components_AddEstado__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/AddEstado */ "./resources/js/src/components/AddEstado.js");
+/* harmony import */ var _components_AddConexione__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/AddConexione */ "./resources/js/src/components/AddConexione.js");
+/* harmony import */ var _components_EditPersona__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/EditPersona */ "./resources/js/src/components/EditPersona.js");
+/* harmony import */ var _components_EditDispositivo__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/EditDispositivo */ "./resources/js/src/components/EditDispositivo.js");
+/* harmony import */ var _components_EditCargo__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/EditCargo */ "./resources/js/src/components/EditCargo.js");
+/* harmony import */ var _components_EditIpe__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/EditIpe */ "./resources/js/src/components/EditIpe.js");
+/* harmony import */ var _components_EditEstado__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/EditEstado */ "./resources/js/src/components/EditEstado.js");
+/* harmony import */ var _components_EditConexione__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/EditConexione */ "./resources/js/src/components/EditConexione.js");
+
+
+
 
 
 
@@ -70781,39 +70787,46 @@ var App = function App() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     exact: true,
     path: "/personas"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_HomePersona__WEBPACK_IMPORTED_MODULE_3__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+  }, "      ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_HomePersona__WEBPACK_IMPORTED_MODULE_3__["default"], null), "     "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     exact: true,
     path: "/dispositivos"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_HomeDispositivo__WEBPACK_IMPORTED_MODULE_4__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+  }, "  ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_HomeDispositivo__WEBPACK_IMPORTED_MODULE_4__["default"], null), " "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     exact: true,
     path: "/cargos"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_HomeCargo__WEBPACK_IMPORTED_MODULE_5__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+  }, "        ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_HomeCargo__WEBPACK_IMPORTED_MODULE_5__["default"], null), "       "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     exact: true,
     path: "/ipes"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_HomeIpe__WEBPACK_IMPORTED_MODULE_6__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+  }, "          ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_HomeIpe__WEBPACK_IMPORTED_MODULE_6__["default"], null), "         "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     exact: true,
     path: "/estados"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_HomeEstado__WEBPACK_IMPORTED_MODULE_7__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+  }, "       ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_HomeEstado__WEBPACK_IMPORTED_MODULE_7__["default"], null), "      "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+    exact: true,
+    path: "/conexiones"
+  }, "    ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_HomeConexione__WEBPACK_IMPORTED_MODULE_8__["default"], null), "   "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     path: "/addpersona"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_AddPersona__WEBPACK_IMPORTED_MODULE_8__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+  }, "          ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_AddPersona__WEBPACK_IMPORTED_MODULE_9__["default"], null), "      "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     path: "/adddispositivo"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_AddDispositivo__WEBPACK_IMPORTED_MODULE_9__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+  }, "      ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_AddDispositivo__WEBPACK_IMPORTED_MODULE_10__["default"], null), "  "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     path: "/addcargo"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_AddCargo__WEBPACK_IMPORTED_MODULE_10__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+  }, "            ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_AddCargo__WEBPACK_IMPORTED_MODULE_11__["default"], null), "        "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     path: "/addipe"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_AddIpe__WEBPACK_IMPORTED_MODULE_11__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+  }, "              ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_AddIpe__WEBPACK_IMPORTED_MODULE_12__["default"], null), "          "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     path: "/addest"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_AddEstado__WEBPACK_IMPORTED_MODULE_12__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+  }, "              ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_AddEstado__WEBPACK_IMPORTED_MODULE_13__["default"], null), "       "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+    path: "/addcon"
+  }, "              ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_AddConexione__WEBPACK_IMPORTED_MODULE_14__["default"], null), "    "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     path: "/editpers/:id"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_EditPersona__WEBPACK_IMPORTED_MODULE_13__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+  }, "        ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_EditPersona__WEBPACK_IMPORTED_MODULE_15__["default"], null), "     "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     path: "/editdisp/:id"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_EditDispositivo__WEBPACK_IMPORTED_MODULE_14__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+  }, "        ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_EditDispositivo__WEBPACK_IMPORTED_MODULE_16__["default"], null), " "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     path: "/editcar/:id"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_EditCargo__WEBPACK_IMPORTED_MODULE_15__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+  }, "         ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_EditCargo__WEBPACK_IMPORTED_MODULE_17__["default"], null), "       "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     path: "/editipe/:id"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_EditIpe__WEBPACK_IMPORTED_MODULE_16__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+  }, "         ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_EditIpe__WEBPACK_IMPORTED_MODULE_18__["default"], null), "         "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     path: "/editest/:id"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_EditEstado__WEBPACK_IMPORTED_MODULE_17__["default"], null))));
+  }, "         ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_EditEstado__WEBPACK_IMPORTED_MODULE_19__["default"], null), "      "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+    path: "/editcon/:id"
+  }, "         ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_EditConexione__WEBPACK_IMPORTED_MODULE_20__["default"], null), "   ")));
 };
 
 react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(App, null), document.getElementById('example'));
@@ -70880,6 +70893,9 @@ var BASE_API_URL = 'http://localhost:8000/api';
   getAllIpes: function getAllIpes() {
     return axios.get("".concat(BASE_API_URL, "/ipes"));
   },
+  getAllIpesOff: function getAllIpesOff() {
+    return axios.get("".concat(BASE_API_URL, "/ipesoff"));
+  },
   getOneIpe: function getOneIpe(id) {
     return axios.get("".concat(BASE_API_URL, "/ipes/").concat(id, "/edit"));
   },
@@ -70906,6 +70922,21 @@ var BASE_API_URL = 'http://localhost:8000/api';
   },
   deleteEstado: function deleteEstado(id) {
     return axios["delete"]("".concat(BASE_API_URL, "/estados/").concat(id));
+  },
+  getAllConexiones: function getAllConexiones() {
+    return axios.get("".concat(BASE_API_URL, "/conexiones"));
+  },
+  getOneConexione: function getOneConexione(id) {
+    return axios.get("".concat(BASE_API_URL, "/conexiones/").concat(id, "/edit"));
+  },
+  addConexione: function addConexione(conexione) {
+    return axios.post("".concat(BASE_API_URL, "/conexiones"), conexione);
+  },
+  updateConexione: function updateConexione(conexione, id) {
+    return axios.put("".concat(BASE_API_URL, "/conexiones/").concat(id), conexione);
+  },
+  deleteConexione: function deleteConexione(id) {
+    return axios["delete"]("".concat(BASE_API_URL, "/conexiones/").concat(id));
   }
 });
 
@@ -71040,6 +71071,224 @@ var AddCargo = function AddCargo() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (AddCargo);
+
+/***/ }),
+
+/***/ "./resources/js/src/components/AddConexione.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/src/components/AddConexione.js ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _AppContainer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AppContainer */ "./resources/js/src/components/AppContainer.js");
+/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../api */ "./resources/js/src/api.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr && (typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]); if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+var AddConexione = function AddConexione() {
+  var history = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["useHistory"])();
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      loading = _useState2[0],
+      setLoading = _useState2[1];
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(''),
+      _useState4 = _slicedToArray(_useState3, 2),
+      dispositivo_id = _useState4[0],
+      setDispositivo_id = _useState4[1];
+
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(''),
+      _useState6 = _slicedToArray(_useState5, 2),
+      ipe_id = _useState6[0],
+      setIpe_id = _useState6[1];
+
+  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(''),
+      _useState8 = _slicedToArray(_useState7, 2),
+      estado_id = _useState8[0],
+      setEstado_id = _useState8[1];
+
+  var _useState9 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(''),
+      _useState10 = _slicedToArray(_useState9, 2),
+      descripcion = _useState10[0],
+      setDescripcion = _useState10[1];
+
+  var _useState11 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])([]),
+      _useState12 = _slicedToArray(_useState11, 2),
+      dispositivos = _useState12[0],
+      setDispositivos = _useState12[1];
+
+  var _useState13 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])([]),
+      _useState14 = _slicedToArray(_useState13, 2),
+      ipes = _useState14[0],
+      setIpes = _useState14[1];
+
+  var _useState15 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])([]),
+      _useState16 = _slicedToArray(_useState15, 2),
+      estados = _useState16[0],
+      setEstados = _useState16[1];
+
+  var onAddSubmit = /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              setLoading(true);
+              _context.prev = 1;
+              _context.next = 4;
+              return _api__WEBPACK_IMPORTED_MODULE_4__["default"].addConexione({
+                dispositivo_id: dispositivo_id,
+                ipe_id: ipe_id,
+                estado_id: estado_id,
+                descripcion: descripcion
+              });
+
+            case 4:
+              history.push('/conexiones');
+              _context.next = 10;
+              break;
+
+            case 7:
+              _context.prev = 7;
+              _context.t0 = _context["catch"](1);
+              alert('Fallo al agregar conexión!');
+
+            case 10:
+              _context.prev = 10;
+              setLoading(false);
+              return _context.finish(10);
+
+            case 13:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, null, [[1, 7, 10, 13]]);
+    }));
+
+    return function onAddSubmit() {
+      return _ref.apply(this, arguments);
+    };
+  }();
+
+  var fetchDispositivos = function fetchDispositivos() {
+    _api__WEBPACK_IMPORTED_MODULE_4__["default"].getAllDispositivos().then(function (res) {
+      var result = res.data;
+      setDispositivos(result.data);
+    });
+  };
+
+  var fetchIpes = function fetchIpes() {
+    _api__WEBPACK_IMPORTED_MODULE_4__["default"].getAllIpesOff().then(function (res) {
+      var result = res.data;
+      setIpes(result.data);
+    });
+  };
+
+  var fetchEstados = function fetchEstados() {
+    _api__WEBPACK_IMPORTED_MODULE_4__["default"].getAllEstados().then(function (res) {
+      var result = res.data;
+      setEstados(result.data);
+    });
+  };
+
+  Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
+    fetchDispositivos();
+    fetchIpes();
+    fetchEstados();
+  }, []);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_AppContainer__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    title: "Agregar Conexi\xF3n"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    className: "form-group"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", null, "Dispositivo"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("select", {
+    onChange: function onChange(e) {
+      return setDispositivo_id(e.target.value);
+    },
+    className: "form-control"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
+    selected: true
+  }, "---------"), dispositivos.map(function (dispositivo) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
+      key: dispositivo.id,
+      value: dispositivo.id
+    }, dispositivo.mac);
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    className: "form-group"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", null, "Direccion IP"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("select", {
+    onChange: function onChange(e) {
+      return setIpe_id(e.target.value);
+    },
+    className: "form-control"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
+    selected: true
+  }, "---------"), ipes.map(function (ipe) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
+      key: ipe.id,
+      value: ipe.id
+    }, ipe.longitud);
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    className: "form-group"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", null, "Estado de la conexi\xF3n"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("select", {
+    onChange: function onChange(e) {
+      return setEstado_id(e.target.value);
+    },
+    className: "form-control"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
+    selected: true
+  }, "---------"), estados.map(function (estado) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
+      key: estado.id,
+      value: estado.id
+    }, estado.nombre);
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    className: "form-group"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", null, "Descripcion"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
+    className: "form-control",
+    value: descripcion,
+    onChange: function onChange(e) {
+      return setDescripcion(e.target.value);
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    className: "form-group"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+    type: "button",
+    className: "btn btn-success",
+    onClick: onAddSubmit,
+    disabled: loading
+  }, loading ? 'Asignando...' : 'Asignar'))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (AddConexione);
 
 /***/ }),
 
@@ -71425,6 +71674,16 @@ var AddIpe = function AddIpe() {
       longitud = _useState4[0],
       setLongitud = _useState4[1];
 
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(''),
+      _useState6 = _slicedToArray(_useState5, 2),
+      estado_id = _useState6[0],
+      setEstado_id = _useState6[1];
+
+  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])([]),
+      _useState8 = _slicedToArray(_useState7, 2),
+      estados = _useState8[0],
+      setEstados = _useState8[1];
+
   var onAddSubmit = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
@@ -71435,7 +71694,8 @@ var AddIpe = function AddIpe() {
               _context.prev = 1;
               _context.next = 4;
               return _api__WEBPACK_IMPORTED_MODULE_4__["default"].addIpe({
-                longitud: longitud
+                longitud: longitud,
+                estado_id: estado_id
               });
 
             case 4:
@@ -71446,7 +71706,7 @@ var AddIpe = function AddIpe() {
             case 7:
               _context.prev = 7;
               _context.t0 = _context["catch"](1);
-              alert('Fallo al agregar IP!');
+              alert('Fallo al agregar Direccón IP!');
 
             case 10:
               _context.prev = 10;
@@ -71466,6 +71726,16 @@ var AddIpe = function AddIpe() {
     };
   }();
 
+  var fetchEstados = function fetchEstados() {
+    _api__WEBPACK_IMPORTED_MODULE_4__["default"].getAllEstados().then(function (res) {
+      var result = res.data;
+      setEstados(result.data);
+    });
+  };
+
+  Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
+    fetchEstados();
+  }, []);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_AppContainer__WEBPACK_IMPORTED_MODULE_3__["default"], {
     title: "Agregar IP"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
@@ -71477,6 +71747,20 @@ var AddIpe = function AddIpe() {
       return setLongitud(e.target.value);
     }
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    className: "form-group"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", null, "Estado"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("select", {
+    onChange: function onChange(e) {
+      return setCargo_id(e.target.value);
+    },
+    className: "form-control"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
+    selected: true
+  }, "---------"), estados.map(function (estado) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
+      key: estado.id,
+      value: estado.id
+    }, estado.nombre);
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "form-group"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
     type: "button",
@@ -71829,6 +72113,193 @@ var EditCargo = function EditCargo() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (EditCargo);
+
+/***/ }),
+
+/***/ "./resources/js/src/components/EditConexione.js":
+/*!******************************************************!*\
+  !*** ./resources/js/src/components/EditConexione.js ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _AppContainer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AppContainer */ "./resources/js/src/components/AppContainer.js");
+/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../api */ "./resources/js/src/api.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr && (typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]); if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+var EditConexione = function EditConexione() {
+  var _useParams = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["useParams"])(),
+      id = _useParams.id;
+
+  var history = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["useHistory"])();
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      loading = _useState2[0],
+      setLoading = _useState2[1];
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(''),
+      _useState4 = _slicedToArray(_useState3, 2),
+      dispositivo_id = _useState4[0],
+      setDispositivo_id = _useState4[1];
+
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(''),
+      _useState6 = _slicedToArray(_useState5, 2),
+      ipe_id = _useState6[0],
+      setIpe_id = _useState6[1];
+
+  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(''),
+      _useState8 = _slicedToArray(_useState7, 2),
+      estado_id = _useState8[0],
+      setEstado_id = _useState8[1];
+
+  var _useState9 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(''),
+      _useState10 = _slicedToArray(_useState9, 2),
+      descripcion = _useState10[0],
+      setDescripcion = _useState10[1];
+
+  var onEditSubmit = /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              setLoading(true);
+              _context.prev = 1;
+              _context.next = 4;
+              return _api__WEBPACK_IMPORTED_MODULE_4__["default"].updateConexione({
+                dispositivo_id: dispositivo_id,
+                ipe_id: ipe_id,
+                estado_id: estado_id,
+                descripcion: descripcion
+              }, id);
+
+            case 4:
+              history.push('/conexiones');
+              _context.next = 10;
+              break;
+
+            case 7:
+              _context.prev = 7;
+              _context.t0 = _context["catch"](1);
+              alert('Fallo al editar conexion!');
+
+            case 10:
+              _context.prev = 10;
+              setLoading(false);
+              return _context.finish(10);
+
+            case 13:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, null, [[1, 7, 10, 13]]);
+    }));
+
+    return function onEditSubmit() {
+      return _ref.apply(this, arguments);
+    };
+  }();
+
+  Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
+    _api__WEBPACK_IMPORTED_MODULE_4__["default"].getOneConexione(id).then(function (res) {
+      var result = res.data;
+      var conexione = result.data;
+      setDispositivo_id(conexione.dispositivo_id);
+      setIpe_id(conexione.ipe_id);
+      setEstado_id(conexione.estado_id);
+      setDescripcion(conexione.descripcion);
+    });
+  }, []);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_AppContainer__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    title: "Editar Conexion"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    className: "form-group"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", null, "Dispositivo"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("select", {
+    onChange: function onChange(e) {
+      return setDispositivo_id(e.target.value);
+    },
+    className: "form-control"
+  }, dispositivos.map(function (dispositivo) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
+      selected: dispositivo_id == dispositivo.id,
+      key: dispositivo.id,
+      value: dispositivo.id
+    }, dispositivo.mac);
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    className: "form-group"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", null, "Direccion IP"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("select", {
+    onChange: function onChange(e) {
+      return setIpe_id(e.target.value);
+    },
+    className: "form-control"
+  }, ipes.map(function (ipe) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
+      selected: ipe_id == ipe.id,
+      key: ipe.id,
+      value: ipe.id
+    }, ipe.longitud);
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    className: "form-group"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", null, "Estado"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("select", {
+    onChange: function onChange(e) {
+      return setEstado_id(e.target.value);
+    },
+    className: "form-control"
+  }, estados.map(function (estado) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
+      selected: estado_id == estado.id,
+      key: estado.id,
+      value: estado.id
+    }, estado.nombre);
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    className: "form-group"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", null, "Descripcion"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
+    className: "form-control",
+    value: descripcion,
+    onChange: function onChange(e) {
+      return setDescripcion(e.target.value);
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    className: "form-group"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+    type: "button",
+    className: "btn btn-success",
+    onClick: onEditSubmit,
+    disabled: loading
+  }, loading ? 'Cargando...' : 'Editar'))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (EditConexione);
 
 /***/ }),
 
@@ -72239,6 +72710,16 @@ var EditIpe = function EditIpe() {
       longitud = _useState4[0],
       setLongitud = _useState4[1];
 
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(''),
+      _useState6 = _slicedToArray(_useState5, 2),
+      estado_id = _useState6[0],
+      setEstado_id = _useState6[1];
+
+  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])([]),
+      _useState8 = _slicedToArray(_useState7, 2),
+      estados = _useState8[0],
+      setEstados = _useState8[1];
+
   var onEditSubmit = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
@@ -72249,7 +72730,8 @@ var EditIpe = function EditIpe() {
               _context.prev = 1;
               _context.next = 4;
               return _api__WEBPACK_IMPORTED_MODULE_4__["default"].updateIpe({
-                longitud: longitud
+                longitud: longitud,
+                estado_id: estado_id
               }, id);
 
             case 4:
@@ -72260,7 +72742,7 @@ var EditIpe = function EditIpe() {
             case 7:
               _context.prev = 7;
               _context.t0 = _context["catch"](1);
-              alert('Fallo al editar IP!');
+              alert('Fallo al editar Dirección IP!');
 
             case 10:
               _context.prev = 10;
@@ -72280,12 +72762,21 @@ var EditIpe = function EditIpe() {
     };
   }();
 
+  var fetchEstados = function fetchEstados() {
+    _api__WEBPACK_IMPORTED_MODULE_4__["default"].getAllEstados().then(function (res) {
+      var result = res.data;
+      setEstados(result.data);
+    });
+  };
+
   Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
     _api__WEBPACK_IMPORTED_MODULE_4__["default"].getOneIpe(id).then(function (res) {
       var result = res.data;
       var ipe = result.data;
       setLongitud(ipe.longitud);
+      setEstado_id(ipe.estado_id);
     });
+    fetchEstados();
   }, []);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_AppContainer__WEBPACK_IMPORTED_MODULE_3__["default"], {
     title: "Editar IP"
@@ -72298,6 +72789,19 @@ var EditIpe = function EditIpe() {
       return setLongitud(e.target.value);
     }
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    className: "form-group"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", null, "Estado"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("select", {
+    onChange: function onChange(e) {
+      return setEstado_id(e.target.value);
+    },
+    className: "form-control"
+  }, estados.map(function (estado) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
+      selected: estado_id == estado.id,
+      key: estado.id,
+      value: estado.id
+    }, estado.nombre);
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "form-group"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
     type: "button",
@@ -72571,6 +73075,9 @@ var HomeCargo = function HomeCargo() {
     to: "/addcargo",
     className: "btn btn-primary"
   }, "Agregar Cargo"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/conexiones",
+    className: "btn btn-secundary"
+  }, "Conexiones"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/dispositivos",
     className: "btn btn-secundary"
   }, "Dispositivos"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
@@ -72590,6 +73097,165 @@ var HomeCargo = function HomeCargo() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (HomeCargo);
+
+/***/ }),
+
+/***/ "./resources/js/src/components/HomeConexione.js":
+/*!******************************************************!*\
+  !*** ./resources/js/src/components/HomeConexione.js ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _AppContainer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AppContainer */ "./resources/js/src/components/AppContainer.js");
+/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../api */ "./resources/js/src/api.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr && (typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]); if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+var HomeConexione = function HomeConexione() {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
+      _useState2 = _slicedToArray(_useState, 2),
+      conexiones = _useState2[0],
+      setConexiones = _useState2[1];
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
+      _useState4 = _slicedToArray(_useState3, 2),
+      dispositivos = _useState4[0],
+      setDispositivos = _useState4[1];
+
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
+      _useState6 = _slicedToArray(_useState5, 2),
+      ipes = _useState6[0],
+      setIpes = _useState6[1];
+
+  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
+      _useState8 = _slicedToArray(_useState7, 2),
+      estados = _useState8[0],
+      setEstados = _useState8[1];
+
+  var fetchConexiones = function fetchConexiones() {
+    _api__WEBPACK_IMPORTED_MODULE_3__["default"].getAllConexiones().then(function (res) {
+      var result = res.data;
+      setConexiones(result.data);
+    });
+  };
+
+  var fetchDispositivos = function fetchDispositivos() {
+    _api__WEBPACK_IMPORTED_MODULE_3__["default"].getAllDispositivos().then(function (res) {
+      var result = res.data;
+      setDispositivos(result.data);
+    });
+  };
+
+  var fetchIpes = function fetchIpes() {
+    _api__WEBPACK_IMPORTED_MODULE_3__["default"].getAllIpes().then(function (res) {
+      var result = res.data;
+      setIpes(result.data);
+    });
+  };
+
+  var fetchEstados = function fetchEstados() {
+    _api__WEBPACK_IMPORTED_MODULE_3__["default"].getAllEstados().then(function (res) {
+      var result = res.data;
+      setEstados(result.data);
+    });
+  };
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    fetchConexiones();
+    fetchDispositivos();
+    fetchIpes();
+    fetchEstados();
+  }, []);
+
+  var renderConexiones = function renderConexiones() {
+    if (!conexiones) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+        colSpan: "10"
+      }, "Cargando Conexiones..."));
+    }
+
+    if (conexiones.length === 0) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+        colSpan: "10"
+      }, "No hay Conexiones, agrega una."));
+    }
+
+    return conexiones.map(function (conexione) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, dispositivos.map(function (dispositivo) {
+        if (conexione.dispositivo_id === dispositivo.id) {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, dispositivo.mac + " - " + dispositivo.nombre, " ");
+        }
+      }), ipes.map(function (ipe) {
+        if (conexione.ipe_id === ipe.id) {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, ipe.longitud);
+        }
+      }), estados.map(function (estado) {
+        if (conexione.estado_id === estado.id) {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, estado.nombre);
+        }
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, conexione.descripcion), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        className: "btn btn-warning",
+        to: "/editcon/".concat(conexione.id)
+      }, "EDITAR"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "btn btn-danger",
+        onClick: function onClick() {
+          _api__WEBPACK_IMPORTED_MODULE_3__["default"].deleteConexione(conexione.id).then(fetchConexiones)["catch"](function (err) {
+            alert('Fallo al eliminar conexion con id :' + ipe.id);
+          });
+        }
+      }, "ELIMINAR")));
+    });
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_AppContainer__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    title: "Conexiones"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/addcon",
+    className: "btn btn-primary"
+  }, "Agregar Conexion"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/cargos",
+    className: "btn btn-secundary"
+  }, "Cargos"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/dispositivos",
+    className: "btn btn-secundary"
+  }, "Dispositivos"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/estados",
+    className: "btn btn-secundary"
+  }, "Estados"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/ipes",
+    className: "btn btn-secundary"
+  }, "IP's"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/personas",
+    className: "btn btn-secundary"
+  }, "Personas"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "table-responsive"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+    className: "table table-striped mt-4"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Dispositivo"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Direcci\xF3n IP"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Estado"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Descripcion"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Accion"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, renderConexiones()))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (HomeConexione);
 
 /***/ }),
 
@@ -72696,6 +73362,9 @@ var HomeDispositivo = function HomeDispositivo() {
     to: "/cargos",
     className: "btn btn-secundary"
   }, "Cargos"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/conexiones",
+    className: "btn btn-secundary"
+  }, "Conexiones"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/estados",
     className: "btn btn-secundary"
   }, "Estados"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
@@ -72801,6 +73470,9 @@ var HomeEstado = function HomeEstado() {
     to: "/cargos",
     className: "btn btn-secundary"
   }, "Cargos"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/conexiones",
+    className: "btn btn-secundary"
+  }, "Conexiones"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/dispositivos",
     className: "btn btn-secundary"
   }, "Dispositivos"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
@@ -72857,6 +73529,11 @@ var HomeIpe = function HomeIpe() {
       ipes = _useState2[0],
       setIpes = _useState2[1];
 
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
+      _useState4 = _slicedToArray(_useState3, 2),
+      estados = _useState4[0],
+      setEstados = _useState4[1];
+
   var fetchIpes = function fetchIpes() {
     _api__WEBPACK_IMPORTED_MODULE_3__["default"].getAllIpes().then(function (res) {
       var result = res.data;
@@ -72864,8 +73541,16 @@ var HomeIpe = function HomeIpe() {
     });
   };
 
+  var fetchEstados = function fetchEstados() {
+    _api__WEBPACK_IMPORTED_MODULE_3__["default"].getAllEstados().then(function (res) {
+      var result = res.data;
+      setEstados(result.data);
+    });
+  };
+
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     fetchIpes();
+    fetchEstados();
   }, []);
 
   var renderIpes = function renderIpes() {
@@ -72882,7 +73567,11 @@ var HomeIpe = function HomeIpe() {
     }
 
     return ipes.map(function (ipe) {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, ipe.id), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, ipe.longitud), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, ipe.id), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, ipe.longitud), estados.map(function (estado) {
+        if (ipe.estado_id === estado.id) {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, estado.nombre);
+        }
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         className: "btn btn-warning",
         to: "/editipe/".concat(ipe.id)
       }, "EDITAR"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -72906,6 +73595,9 @@ var HomeIpe = function HomeIpe() {
     to: "/cargos",
     className: "btn btn-secundary"
   }, "Cargos"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/conexiones",
+    className: "btn btn-secundary"
+  }, "Conexiones"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/dispositivos",
     className: "btn btn-secundary"
   }, "Dispositivos"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
@@ -72918,7 +73610,7 @@ var HomeIpe = function HomeIpe() {
     className: "table-responsive"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
     className: "table table-striped mt-4"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "ID"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Longitud"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Accion"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, renderIpes()))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "ID"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Longitud"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Estado"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Accion"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, renderIpes()))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (HomeIpe);
@@ -73028,6 +73720,9 @@ var HomePersona = function HomePersona() {
     to: "/cargos",
     className: "btn btn-secundary"
   }, "Cargos"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/conexiones",
+    className: "btn btn-secundary"
+  }, "Conexiones"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/dispositivos",
     className: "btn btn-secundary"
   }, "Dispositivos"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {

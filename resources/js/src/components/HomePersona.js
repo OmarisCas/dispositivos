@@ -80,6 +80,7 @@ const HomePersona = () => {
         <AppContainer title="Personas">
             <Link to="/addpersona" className="btn btn-primary">Agregar Persona</Link>
             <Link to="/cargos" className="btn btn-secundary">Cargos</Link>
+            <Link to="/conexiones" className="btn btn-secundary">Conexiones</Link>
             <Link to="/dispositivos" className="btn btn-secundary">Dispositivos</Link>
             <Link to="/estados" className="btn btn-secundary">Estados</Link>
             <Link to="/ipes" className="btn btn-secundary">IP's</Link>

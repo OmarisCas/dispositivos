@@ -82,6 +82,7 @@ const HomeDispositivo = () => {
         <AppContainer title="Dispositivos">
             <Link to="/adddispositivo" className="btn btn-primary">Agregar Dispositivo</Link>
             <Link to="/cargos" className="btn btn-secundary">Cargos</Link>
+            <Link to="/conexiones" className="btn btn-secundary">Conexiones</Link>
             <Link to="/estados" className="btn btn-secundary">Estados</Link>
             <Link to="/ipes" className="btn btn-secundary">IP's</Link>
             <Link to="/personas" className="btn btn-secundary">Personas</Link>

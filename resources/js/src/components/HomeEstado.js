@@ -63,6 +63,7 @@ const HomeEstado = () => {
         <AppContainer title="Estados de la conexión">
             <Link to="/addest" className="btn btn-primary">Agregar Estado</Link>
             <Link to="/cargos" className="btn btn-secundary">Cargos</Link>
+            <Link to="/conexiones" className="btn btn-secundary">Conexiones</Link>
             <Link to="/dispositivos" className="btn btn-secundary">Dispositivos</Link>
             <Link to="/ipes" className="btn btn-secundary">IP's</Link>
             <Link to="/personas" className="btn btn-secundary">Personas</Link>
