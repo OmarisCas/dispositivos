@@ -15,7 +15,8 @@ class CargoController extends Controller
      */
     public function index()
     {
-        return CargoResource::collection(Cargo::orderBy('nombre', 'asc')->paginate(5));
+        //return CargoResource::collection(Cargo::orderBy('nombre', 'asc')->paginate(5));
+        return CargoResource::collection(Cargo::all());
     }
 
     /**
