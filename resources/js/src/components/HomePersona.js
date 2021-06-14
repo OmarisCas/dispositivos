@@ -47,14 +47,14 @@ const HomePersona = () => {
         }
 
         return personas.map((persona, index) => (
-            <tr>
+            <tr key={index}>
                 <td>{persona.id}</td>
                 <td>{persona.nombre}</td>
                 <td>{persona.apellido}</td>
                 
-                {cargos.map(cargo => {
+                {cargos.map((cargo, index) => {
                     if( persona.cargo_id === cargo.id ){
-                        return <td>{cargo.nombre}</td>
+                        return <td key={index}>{cargo.nombre}</td>
                     }}
                 )}
                 

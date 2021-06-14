@@ -9,7 +9,6 @@ const HomeCargo = () => {
     const fetchCargos = () => {
         api.getAllCargos().then(res => {
             const result = res.data;
-            //console.log(result);
             setCargos(result.data)
         });
     }
@@ -38,8 +37,8 @@ const HomeCargo = () => {
             );
         }
 
-        return cargos.map((cargo) => (
-            <tr>
+        return cargos.map((cargo, index) => (
+            <tr key={index}>
                 <td>{cargo.id}</td>
                 <td>{cargo.nombre}</td>
                 <td>{cargo.descripcion}</td>
