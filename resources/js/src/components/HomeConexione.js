@@ -78,9 +78,19 @@ const HomeConexione = () => {
                     }}
                 )}
 
-                {estados.map(estado => {
+                {estados.map((estado, index) => {
                     if( conexione.estado_id === estado.id ){
-                        return <td>{estado.nombre}</td>
+                        if (conexione.estado_id === 1) {
+                            return <td key={index}>
+                            <button className="btn btn-danger">
+                                {estado.nombre}
+                            </button> </td>
+                        }else{
+                            return <td key={index}>
+                            <button className="btn btn-success">
+                                {estado.nombre}
+                            </button> </td>
+                        }
                     }}
                 )}
                 <td>{conexione.descripcion}</td>

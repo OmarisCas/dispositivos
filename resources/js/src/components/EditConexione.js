@@ -11,6 +11,9 @@ const EditConexione = () => {
     const [ipe_id, setIpe_id] = useState('');
     const [estado_id, setEstado_id] = useState('');
     const [descripcion, setDescripcion] = useState('');
+    const [dispositivos, setDispositivos] = useState([]);
+    const [ipes, setIpes] = useState([]);
+    const [estados, setEstados] = useState([]);
 
     const onEditSubmit = async () => {
         setLoading(true);
@@ -26,6 +29,27 @@ const EditConexione = () => {
         }
     };
 
+    const fetchDispositivos = () => {
+        api.getAllDispositivos().then(res => {
+            const result = res.data;
+            setDispositivos(result.data)
+        });
+    }
+
+    const fetchIpes = () => {
+        api.getAllIpes().then(res => {
+            const result = res.data;
+            setIpes(result.data)
+        });
+    }
+
+    const fetchEstados = () => {
+        api.getAllEstados().then(res => {
+            const result = res.data;
+            setEstados(result.data)
+        });
+    }
+
     useEffect(() => {
         api.getOneConexione(id).then(res => {
             const result = res.data;
@@ -34,6 +58,9 @@ const EditConexione = () => {
             setIpe_id(conexione.ipe_id);
             setEstado_id(conexione.estado_id);
             setDescripcion(conexione.descripcion);
+            fetchDispositivos();
+            fetchIpes();
+            fetchEstados();
         })
     }, []);
 

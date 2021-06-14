@@ -72192,6 +72192,21 @@ var EditConexione = function EditConexione() {
       descripcion = _useState10[0],
       setDescripcion = _useState10[1];
 
+  var _useState11 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])([]),
+      _useState12 = _slicedToArray(_useState11, 2),
+      dispositivos = _useState12[0],
+      setDispositivos = _useState12[1];
+
+  var _useState13 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])([]),
+      _useState14 = _slicedToArray(_useState13, 2),
+      ipes = _useState14[0],
+      setIpes = _useState14[1];
+
+  var _useState15 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])([]),
+      _useState16 = _slicedToArray(_useState15, 2),
+      estados = _useState16[0],
+      setEstados = _useState16[1];
+
   var onEditSubmit = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
@@ -72236,6 +72251,27 @@ var EditConexione = function EditConexione() {
     };
   }();
 
+  var fetchDispositivos = function fetchDispositivos() {
+    _api__WEBPACK_IMPORTED_MODULE_4__["default"].getAllDispositivos().then(function (res) {
+      var result = res.data;
+      setDispositivos(result.data);
+    });
+  };
+
+  var fetchIpes = function fetchIpes() {
+    _api__WEBPACK_IMPORTED_MODULE_4__["default"].getAllIpes().then(function (res) {
+      var result = res.data;
+      setIpes(result.data);
+    });
+  };
+
+  var fetchEstados = function fetchEstados() {
+    _api__WEBPACK_IMPORTED_MODULE_4__["default"].getAllEstados().then(function (res) {
+      var result = res.data;
+      setEstados(result.data);
+    });
+  };
+
   Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
     _api__WEBPACK_IMPORTED_MODULE_4__["default"].getOneConexione(id).then(function (res) {
       var result = res.data;
@@ -72244,6 +72280,9 @@ var EditConexione = function EditConexione() {
       setIpe_id(conexione.ipe_id);
       setEstado_id(conexione.estado_id);
       setDescripcion(conexione.descripcion);
+      fetchDispositivos();
+      fetchIpes();
+      fetchEstados();
     });
   }, []);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_AppContainer__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -73217,9 +73256,21 @@ var HomeConexione = function HomeConexione() {
         if (conexione.ipe_id === ipe.id) {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, ipe.longitud);
         }
-      }), estados.map(function (estado) {
+      }), estados.map(function (estado, index) {
         if (conexione.estado_id === estado.id) {
-          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, estado.nombre);
+          if (conexione.estado_id === 1) {
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+              key: index
+            }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+              className: "btn btn-danger"
+            }, estado.nombre), " ");
+          } else {
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+              key: index
+            }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+              className: "btn btn-success"
+            }, estado.nombre), " ");
+          }
         }
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, conexione.descripcion), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         className: "btn btn-warning",
