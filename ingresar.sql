@@ -2,6 +2,10 @@ INSERT INTO `dispositivos`.`estados` (`id`, `codigo`, `nombre`) VALUES ('1', '0'
 INSERT INTO `dispositivos`.`estados` (`id`, `codigo`, `nombre`) VALUES ('2', '1', 'Online');
 
 
+INSERT INTO `dispositivos`.`filtros` (`id`, `codigo`, `nombre`) VALUES ('1', '0', 'No');
+INSERT INTO `dispositivos`.`filtros` (`id`, `codigo`, `nombre`) VALUES ('2', '1', 'Si');
+
+
 INSERT INTO `dispositivos`.`ipes` (`id`, `longitud`) VALUES ('1', '192.168.18.2');
 INSERT INTO `dispositivos`.`ipes` (`id`, `longitud`) VALUES ('2', '192.168.18.3');
 INSERT INTO `dispositivos`.`ipes` (`id`, `longitud`) VALUES ('4', '192.168.18.4');
@@ -268,7 +272,7 @@ INSERT INTO `dispositivos`.`cargos` (`id`, `nombre`, `descripcion`) VALUES ('7',
 INSERT INTO `dispositivos`.`cargos` (`id`, `nombre`, `descripcion`) VALUES ('8', 'Jefe de Sistemas', 'Encargada de sistematizar los procesos');
 INSERT INTO `dispositivos`.`cargos` (`id`, `nombre`, `descripcion`) VALUES ('9', 'Conductor', 'Apoya en la recolección de materia prima');
 INSERT INTO `dispositivos`.`cargos` (`id`, `nombre`, `descripcion`) VALUES ('10', 'Vigilante', 'Labores varias');
-
+INSERT INTO `dispositivos`.`cargos` (`id`, `nombre`, `descripcion`) VALUES ('11', 'Visitante', 'Algunas veces se conecta');
 
 
 

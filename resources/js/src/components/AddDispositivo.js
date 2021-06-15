@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory, Link } from "react-router-dom";
-import AppContainerAdd from './AppContainerAdd';
+import AppContainer from './AppContainer';
 import api from '../api';
 
 const AddDispositivo = () => {
@@ -11,13 +11,15 @@ const AddDispositivo = () => {
     const [marca, setMarca] = useState('');
     const [modelo, setModelo] = useState('');
     const [persona_id, setPersona_id] = useState('');
+    const [filtro_id, setFiltro_id] = useState('');
     const [personas, setPersonas] = useState([]);
+    const [filtros, setFiltros] = useState([]);
 
     const onAddSubmit = async () => {
         setLoading(true);
         try {
             await api.addDispositivo({
-                mac, nombre, marca, modelo, persona_id,
+                mac, nombre, marca, modelo, persona_id, filtro_id
             })
             history.push('/dispositivos');
         } catch {
@@ -34,12 +36,21 @@ const AddDispositivo = () => {
         });
     }
 
+    const fetchFiltros = () => {
+        api.getAllFiltros().then(res => {
+            const result = res.data;
+            setFiltros(result.data)
+        });
+    }
+
     useEffect(() => {
         fetchPersonas();
+        fetchFiltros();
     }, []);
 
     return(
-        <AppContainerAdd title="Agregar Dispositivo">
+        <AppContainer
+            classcard="card border-success" classheader="card-header border-success" title="Agregar Dispositivo">
             <form>
                 <div className="form-group">
                     <label>MAC</label>
@@ -67,6 +78,15 @@ const AddDispositivo = () => {
                     </select>
                 </div>
                 <div className="form-group">
+                    <label>Filtro</label>
+                    <select onChange={e => setFiltro_id(e.target.value)} className="form-control">
+                        <option selected>---------</option>
+                        {filtros.map(filtro => 
+                            <option key={filtro.id} value={filtro.id}>{filtro.nombre}</option>
+                        )}
+                    </select>
+                </div>
+                <div className="form-group">
                     <button type="button" className="btn btn-success" onClick={onAddSubmit} disabled={loading}>
                         {loading ? 'Cargando...' : 'Agregar'}
                     </button>&nbsp;&nbsp;
@@ -75,7 +95,7 @@ const AddDispositivo = () => {
                     </Link>
                 </div>
             </form>
-        </AppContainerAdd>
+        </AppContainer>
     );
 };
 

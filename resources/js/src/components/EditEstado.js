@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams, Link } from "react-router-dom";
 import AppContainer from './AppContainer';
 import api from '../api';
 
@@ -34,7 +34,8 @@ const EditEstado = () => {
     }, []);
 
     return(
-        <AppContainer title="Editar Estado">
+        <AppContainer
+            classcard="card border-danger" classheader="card-header border-danger" title="Editar Estado">
             <form>
                 <div className="form-group">
                     <label>Código</label>
@@ -47,7 +48,10 @@ const EditEstado = () => {
                 <div className="form-group">
                     <button type="button" className="btn btn-success" onClick={onEditSubmit} disabled={loading}>
                         {loading ? 'Cargando...' : 'Editar'}
-                    </button>
+                    </button>&nbsp;&nbsp;
+                    <Link type="button" className="btn btn-danger" to="/estados">
+                        {loading ? 'Cancelando...' : 'Cancelar'}
+                    </Link>
                 </div>
             </form>
         </AppContainer>

@@ -32,6 +32,7 @@ class DispositivoController extends Controller
             'marca' => 'required',
             'modelo' => 'required',
             'persona_id' => 'required',
+            'filtro_id' => 'required',
         ]);
         $dispositivo = new Dispositivo([
             'mac' => $request->mac,
@@ -39,6 +40,7 @@ class DispositivoController extends Controller
             'marca' => $request->marca,
             'modelo' => $request->modelo,
             'persona_id' => $request->persona_id,
+            'filtro_id' => $request->filtro_id,
         ]);
         $dispositivo->save();
         return response()->json([
@@ -72,6 +74,7 @@ class DispositivoController extends Controller
             'marca' => 'required',
             'modelo' => 'required',
             'persona_id' => 'required',
+            'filtro_id' => 'required',
         ]);
         $dispositivo = Dispositivo::findOrFail($id);
         $dispositivo->mac = $request->mac;
@@ -79,6 +82,7 @@ class DispositivoController extends Controller
         $dispositivo->marca = $request->marca;
         $dispositivo->modelo = $request->modelo;
         $dispositivo->persona_id = $request->persona_id;
+        $dispositivo->filtro_id = $request->filtro_id;
         $dispositivo->save();
 
         return response()->json([
@@ -96,7 +100,6 @@ class DispositivoController extends Controller
     {
         $dispositivo = Dispositivo::findOrFail($id);
         $dispositivo->delete();
-
         return response()->json([
             'data' => 'Dispositivo eliminado!'
         ]);

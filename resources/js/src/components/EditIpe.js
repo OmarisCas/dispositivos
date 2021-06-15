@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams, Link } from "react-router-dom";
 import AppContainer from './AppContainer';
 import api from '../api';
 
@@ -43,7 +43,8 @@ const EditIpe = () => {
     }, []);
 
     return(
-        <AppContainer title="Editar IP">
+        <AppContainer
+            classcard="card border-danger" classheader="card-header border-danger" title="Editar IP">
             <form>
                 <div className="form-group">
                     <label>Longitud</label>
@@ -60,7 +61,10 @@ const EditIpe = () => {
                 <div className="form-group">
                     <button type="button" className="btn btn-success" onClick={onEditSubmit} disabled={loading}>
                         {loading ? 'Cargando...' : 'Editar'}
-                    </button>
+                    </button>&nbsp;&nbsp;
+                    <Link type="button" className="btn btn-danger" to="/ipes">
+                        {loading ? 'Cancelando...' : 'Cancelar'}
+                    </Link>
                 </div>
             </form>
         </AppContainer>

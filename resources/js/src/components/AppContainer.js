@@ -1,10 +1,10 @@
 import React from 'react';
 
-const AppContainer = ({title, children}) => {
+const AppContainer = ({classcard, classheader, title, children}) => {
     return(
         <div className="container">
-            <div className="card">
-                <h5 className="card-header">{title}</h5>
+            <div className={classcard}>
+                <h5 className={classheader}>{title}</h5>
                 <div className="card-body">
                     {children}
                 </div>

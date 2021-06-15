@@ -3,8 +3,9 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Dispositivo;
 
-class Dispositivo extends JsonResource
+class Filtro extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,12 +17,8 @@ class Dispositivo extends JsonResource
     {
         return [
             'id' => $this->id,
-            'mac' => $this->mac,
+            'codigo' => $this->codigo,
             'nombre' => $this->nombre,
-            'marca' => $this->marca,
-            'modelo' => $this->modelo,
-            'persona_id' => $this->persona_id,
-            'filtro_id' => $this->filtro_id,
         ];
     }
 }

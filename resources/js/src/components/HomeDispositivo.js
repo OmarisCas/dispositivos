@@ -4,11 +4,12 @@ import AppContainer from './AppContainer';
 import api from '../api';
 import _ from "lodash";
 
-const pageSize = 1;
+const pageSize = 10;
 
 const HomeDispositivo = () => {
     const [dispositivos, setDispositivos] = useState(null);
     const [personas, setPersonas] = useState([]);
+    const [filtros, setFiltros] = useState([]);
     const [paginatedDispositivos, setpaginatedDispositivos] = useState();
     const [currentPage, setcurrentPage] = useState(1);
 
@@ -27,9 +28,17 @@ const HomeDispositivo = () => {
         });
     }
 
+    const fetchFiltros = () => {
+        api.getAllFiltros().then(res => {
+            const result = res.data;
+            setFiltros(result.data)
+        });
+    }
+
     useEffect(() => {
         fetchDispositivos();
         fetchPersonas();
+        fetchFiltros();
     }, []);
 
     //probando
@@ -78,6 +87,22 @@ const HomeDispositivo = () => {
                     }}
                 )}
 
+                {filtros.map((filtro, index) => {
+                    if( dispositivo.filtro_id === filtro.id ){
+                        if (dispositivo.filtro_id === 1) {
+                            return <td key={index}>
+                            <button className="btn btn-success">
+                                {filtro.nombre}
+                            </button> </td>
+                        }else{
+                            return <td key={index}>
+                            <button className="btn btn-danger">
+                                {filtro.nombre}
+                            </button> </td>
+                        }
+                    }}
+                )}
+
                 <td>
                     <Link className="btn btn-warning" to={`/editdisp/${dispositivo.id}`}>
                         EDITAR
@@ -97,12 +122,14 @@ const HomeDispositivo = () => {
     }
 
     return(
-        <AppContainer title="Dispositivos">
+        <AppContainer
+            classcard="card border-primary" classheader="card-header border-primary" title="Dispositivos">
             <ul class="nav nav-pills card-header-pills">
                 <Link to="/adddispositivo" className="btn btn-primary nav-link active">Agregar Dispositivo</Link>
                 <Link to="/cargos" className="btn btn-secundary nav-link">Cargos</Link>
                 <Link to="/conexiones" className="btn btn-secundary nav-link">Conexiones</Link>
                 <Link to="/estados" className="btn btn-secundary nav-link">Estados</Link>
+                <Link to="/filtros" className="btn btn-secundary nav-link">Filtros</Link>
                 <Link to="/ipes" className="btn btn-secundary nav-link">IP's</Link>
                 <Link to="/personas" className="btn btn-secundary nav-link">Personas</Link>
             </ul>
@@ -116,6 +143,7 @@ const HomeDispositivo = () => {
                             <th>Marca</th>
                             <th>Modelo</th>
                             <th>Dueño</th>
+                            <th>Filtro</th>
                             <th>Accion</th>
                         </tr>
                     </thead>

@@ -24,3 +24,5 @@ Route::resource('ipes', 'IpeController');
 Route::get('ipesoff', 'IpeController@ipesoff');
 Route::resource('personas', 'PersonaController');
 Route::resource('conexiones', 'ConexioneController');
+Route::resource('monitoreos', 'MonitoreoController');
+Route::resource('filtros', 'FiltroController');

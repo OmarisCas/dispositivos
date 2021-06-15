@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AppContainerAdd = ({title, children}) => {
+const AppContainerAdd = ({title, children}, {border}) => {
     return(
         <div className="container">
             <div className="card border-success">

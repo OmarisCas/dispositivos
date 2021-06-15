@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory, Link } from "react-router-dom";
-import AppContainerAdd from './AppContainerAdd';
+import AppContainer from './AppContainer';
 import api from '../api';
 
 const AddPersona = () => {
@@ -37,7 +37,8 @@ const AddPersona = () => {
     }, []);
 
     return(
-        <AppContainerAdd title="Agregar Persona">
+        <AppContainer
+            classcard="card border-success" classheader="card-header border-success" title="Agregar Persona">
             <form>
                 <div className="form-group">
                     <label>Nombre</label>
@@ -65,7 +66,7 @@ const AddPersona = () => {
                     </Link>
                 </div>
             </form>
-        </AppContainerAdd>
+        </AppContainer>
     );
 };
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory, Link } from "react-router-dom";
-import AppContainerAdd from './AppContainerAdd';
+import AppContainer from './AppContainer';
 import api from '../api';
 
 const AddEstado = () => {
@@ -24,7 +24,8 @@ const AddEstado = () => {
     };
 
     return(
-        <AppContainerAdd title="Agregar Estado">
+        <AppContainer
+            classcard="card border-success" classheader="card-header border-success" title="Agregar Estado">
             <form>
                 <div className="form-group">
                     <label>Código</label>
@@ -43,7 +44,7 @@ const AddEstado = () => {
                     </Link>
                 </div>
             </form>
-        </AppContainerAdd>
+        </AppContainer>
     );
 };
 

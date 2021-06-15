@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory, Link } from "react-router-dom";
-import AppContainerAdd from './AppContainerAdd';
+import AppContainer from './AppContainer';
 import api from '../api';
 
 const AddIpe = () => {
@@ -36,7 +36,8 @@ const AddIpe = () => {
     }, []);
 
     return(
-        <AppContainerAdd title="Agregar IP">
+        <AppContainer
+            classcard="card border-success" classheader="card-header border-success" title="Agregar IP">
             <form>
                 <div className="form-group">
                     <label>Longitud</label>
@@ -60,7 +61,7 @@ const AddIpe = () => {
                     </Link>
                 </div>
             </form>
-        </AppContainerAdd>
+        </AppContainer>
     );
 };
 

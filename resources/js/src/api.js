@@ -76,5 +76,29 @@ export default {
         axios.put(`${BASE_API_URL}/conexiones/${id}`, conexione),
     deleteConexione: (id) =>
         axios.delete(`${BASE_API_URL}/conexiones/${id}`),
-            
+
+    //MONITOREOS
+    getAllMonitoreos: () =>
+        axios.get(`${BASE_API_URL}/monitoreos`),
+    getOneMonitoreo: (id) =>
+        axios.get(`${BASE_API_URL}/monitoreos/${id}/edit`),
+    addMonitoreo: (monitoreo) =>
+        axios.post(`${BASE_API_URL}/monitoreos`, monitoreo),
+    updateMonitoreo: (monitoreo, id) =>
+        axios.put(`${BASE_API_URL}/monitoreos/${id}`, monitoreo),
+    deleteMonitoreo: (id) =>
+        axios.delete(`${BASE_API_URL}/monitoreos/${id}`),
+
+    //FILTROS
+    getAllFiltros: () =>
+        axios.get(`${BASE_API_URL}/filtros`),
+    getOneFiltro: (id) =>
+        axios.get(`${BASE_API_URL}/filtros/${id}/edit`),
+    addFiltro: (filtro) =>
+        axios.post(`${BASE_API_URL}/filtros`, filtro),
+    updateFiltro: (filtro, id) =>
+        axios.put(`${BASE_API_URL}/filtros/${id}`, filtro),
+    deleteFiltro: (id) =>
+        axios.delete(`${BASE_API_URL}/filtros/${id}`),
+    
 }

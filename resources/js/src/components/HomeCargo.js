@@ -79,12 +79,14 @@ const HomeCargo = () => {
     }
 
     return(
-        <AppContainer title="Cargos">
+        <AppContainer
+            classcard="card border-primary" classheader="card-header border-primary" title="Cargos">
             <ul class="nav nav-pills card-header-pills">
                 <Link to="/addcargo" className="btn btn-primary nav-link active">Agregar Cargo</Link>
                 <Link to="/conexiones" className="btn btn-secundary nav-link">Conexiones</Link>
                 <Link to="/dispositivos" className="btn btn-secundary nav-link">Dispositivos</Link>
                 <Link to="/estados" className="btn btn-secundary nav-link">Estados</Link>
+                <Link to="/filtros" className="btn btn-secundary nav-link">Filtros</Link>
                 <Link to="/ipes" className="btn btn-secundary nav-link">IP's</Link>
                 <Link to="/personas" className="btn btn-secundary nav-link">Personas</Link>
             </ul>

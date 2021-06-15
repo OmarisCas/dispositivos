@@ -4,7 +4,7 @@ import AppContainer from './AppContainer';
 import api from '../api';
 import _ from "lodash";
 
-const pageSize = 1;
+const pageSize = 10;
 
 const HomeConexione = () => {
     const [conexiones, setConexiones] = useState(null);
@@ -131,12 +131,14 @@ const HomeConexione = () => {
     }
 
     return(
-        <AppContainer title="Conexiones">
+        <AppContainer
+            classcard="card border-primary" classheader="card-header border-primary" title="Conexiones">
             <ul class="nav nav-pills card-header-pills">
                 <Link to="/addcon" className="btn btn-primary nav-link active">Agregar Conexion</Link>
                 <Link to="/cargos" className="btn btn-secundary nav-link">Cargos</Link>
                 <Link to="/dispositivos" className="btn btn-secundary nav-link">Dispositivos</Link>
                 <Link to="/estados" className="btn btn-secundary nav-link">Estados</Link>
+                <Link to="/filtros" className="btn btn-secundary nav-link">Filtros</Link>
                 <Link to="/ipes" className="btn btn-secundary nav-link">IP's</Link>
                 <Link to="/personas" className="btn btn-secundary nav-link">Personas</Link>
             </ul>

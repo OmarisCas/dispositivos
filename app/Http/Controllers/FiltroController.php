@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Resources\Estado as EstadoResource;
-use App\{Estado, Conexione, Ipe};
+use App\Http\Resources\Filtro as FiltroResource;
+use App\{Filtro, Dispositivo};
 
-class EstadoController extends Controller
+class FiltroController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class EstadoController extends Controller
      */
     public function index()
     {
-        return EstadoResource::collection(Estado::all());
+        return FiltroResource::collection(Filtro::all());
     }
 
     /**
@@ -30,13 +30,13 @@ class EstadoController extends Controller
             'codigo' => 'required',
             'nombre' => 'required',
         ]);
-        $estado = new Estado([
+        $filtro = new Filtro([
             'codigo' => $request->codigo,
             'nombre' => $request->nombre,
         ]);
-        $estado->save();
+        $filtro->save();
         return response()->json([
-            'data' => 'Estado creado!'
+            'data' => 'Filtro creado!'
         ]);
     }
 
@@ -48,7 +48,7 @@ class EstadoController extends Controller
      */
     public function edit($id)
     {
-        return new EstadoResource(Estado::findOrFail($id));
+        return new FiltroResource(Filtro::findOrFail($id));
     }
 
     /**
@@ -64,13 +64,13 @@ class EstadoController extends Controller
             'codigo' => 'required',
             'nombre' => 'required',
         ]);
-        $estado = Estado::findOrFail($id);
-        $estado->codigo = $request->codigo;
-        $estado->nombre = $request->nombre;
-        $estado->save();
+        $filtro = Filtro::findOrFail($id);
+        $filtro->codigo = $request->codigo;
+        $filtro->nombre = $request->nombre;
+        $filtro->save();
 
         return response()->json([
-            'data' => 'Estado actualizado!'
+            'data' => 'Filtro actualizado!'
         ]);
     }
 
@@ -82,11 +82,11 @@ class EstadoController extends Controller
      */
     public function destroy($id)
     {
-        $estado = Estado::findOrFail($id);
-        $estado->delete();
+        $filtro = Filtro::findOrFail($id);
+        $filtro->delete();
 
         return response()->json([
-            'data' => 'Estado eliminado!'
+            'data' => 'Filtro eliminado!'
         ]);
     }
 }

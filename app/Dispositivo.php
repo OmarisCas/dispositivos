@@ -11,7 +11,7 @@ class Dispositivo extends Model
      * Campos a actualizar.
      */
     protected $fillable = [
-        'mac', 'nombre', 'marca', 'modelo', 'persona_id'
+        'mac', 'nombre', 'marca', 'modelo', 'persona_id', 'filtro_id'
     ];
 
     /**
@@ -20,6 +20,14 @@ class Dispositivo extends Model
     public function persona() //persona->nombre
     {
         return $this->belongsTo('App\Persona');
+    }
+
+    /**
+     * Obtener el filtro asociado al dispositivo.
+     */
+    public function filtro() //filtro->nombre
+    {
+        return $this->belongsTo('App\Filtro');
     }
 
     public function ipes(){

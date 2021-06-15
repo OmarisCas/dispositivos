@@ -3,53 +3,53 @@ import { Link } from 'react-router-dom';
 import AppContainer from './AppContainer';
 import api from '../api';
 
-const HomeEstado = () => {
-    const [estados, setEstados] = useState(null);
+const HomeFiltro = () => {
+    const [filtros, setFiltros] = useState(null);
 
-    const fetchEstados = () => {
-        api.getAllEstados().then(res => {
+    const fetchFiltros = () => {
+        api.getAllFiltros().then(res => {
             const result = res.data;
-            setEstados(result.data)
+            setFiltros(result.data)
         });
     }
 
     useEffect(() => {
-        fetchEstados();
+        fetchFiltros();
     }, []);
 
-    const renderEstados = () => {
-        if(!estados){
+    const renderFiltros = () => {
+        if(!filtros){
             return (
                 <tr>
                     <td colSpan="10">
-                        Cargando Estados...
+                        Cargando Filtros...
                     </td>
                 </tr>
             );
         }
-        if(estados.length === 0){
+        if(filtros.length === 0){
             return (
                 <tr>
                     <td colSpan="10">
-                        No hay Estados, agrega uno.
+                        No hay Filtros, agrega uno.
                     </td>
                 </tr>
             );
         }
 
-        return estados.map((estado, index) => (
+        return filtros.map((filtro, index) => (
             <tr key={index} className="text-center">
-                <td>{estado.codigo}</td>
-                <td>{estado.nombre}</td>
+                <td>{filtro.codigo}</td>
+                <td>{filtro.nombre}</td>
                 <td>
-                    <Link className="btn btn-warning" to={`/editest/${estado.id}`}>
+                    <Link className="btn btn-warning" to={`/editfil/${filtro.id}`}>
                         EDITAR
                     </Link>&nbsp;&nbsp;
                     <button type="button" className="btn btn-danger" onClick={() => {
-                        api.deleteEstado(estado.id)
-                        .then(fetchEstados)
+                        api.deleteFiltro(filtro.id)
+                        .then(fetchFiltros)
                         .catch(err => {
-                            alert('Fallo al eliminar estado con id :' + ipe.id);
+                            alert('Fallo al eliminar filtro con id :' + ipe.id);
                         });
                     }}>
                         ELIMINAR
@@ -61,13 +61,13 @@ const HomeEstado = () => {
 
     return(
         <AppContainer
-            classcard="card border-primary" classheader="card-header border-primary" title="Estados de la conexión">
+            classcard="card border-primary" classheader="card-header border-primary" title="Filtros">
             <ul class="nav nav-pills card-header-pills">
-                <Link to="/addest" className="btn btn-primary nav-link active">Agregar Estado</Link>
+                <Link to="/addfil" className="btn btn-primary nav-link active">Agregar Filtro</Link>
                 <Link to="/cargos" className="btn btn-secundary nav-link">Cargos</Link>
                 <Link to="/conexiones" className="btn btn-secundary nav-link">Conexiones</Link>
                 <Link to="/dispositivos" className="btn btn-secundary nav-link">Dispositivos</Link>
-                <Link to="/filtros" className="btn btn-secundary nav-link">Filtros</Link>
+                <Link to="/estados" className="btn btn-secundary nav-link">Estados</Link>
                 <Link to="/ipes" className="btn btn-secundary nav-link">IP's</Link>
                 <Link to="/personas" className="btn btn-secundary nav-link">Personas</Link>
             </ul>
@@ -81,7 +81,7 @@ const HomeEstado = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {renderEstados()}
+                        {renderFiltros()}
                     </tbody>
                 </table>
             </div>
@@ -89,4 +89,4 @@ const HomeEstado = () => {
     );
 };
 
-export default HomeEstado;
+export default HomeFiltro;
