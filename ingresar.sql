@@ -273,6 +273,8 @@ INSERT INTO `dispositivos`.`cargos` (`id`, `nombre`, `descripcion`) VALUES ('8',
 INSERT INTO `dispositivos`.`cargos` (`id`, `nombre`, `descripcion`) VALUES ('9', 'Conductor', 'Apoya en la recolección de materia prima');
 INSERT INTO `dispositivos`.`cargos` (`id`, `nombre`, `descripcion`) VALUES ('10', 'Vigilante', 'Labores varias');
 INSERT INTO `dispositivos`.`cargos` (`id`, `nombre`, `descripcion`) VALUES ('11', 'Visitante', 'Algunas veces se conecta');
-
+INSERT INTO `dispositivos`.`cargos` (`id`, `nombre`, `descripcion`) VALUES ('12', 'No identificado', 'No identificado');
+INSERT INTO `dispositivos`.`cargos` (`id`, `nombre`, `descripcion`) VALUES ('13', 'Auxiliar Administrativa', 'No identificado');
+INSERT INTO `dispositivos`.`cargos` (`id`, `nombre`, `descripcion`) VALUES ('14', 'Gerente', 'No identificado');
 
 

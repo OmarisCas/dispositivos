@@ -74271,8 +74271,9 @@ var HomeConexione = function HomeConexione() {
       }, dispositivos.map(function (dispositivo, index) {
         if (conexione.dispositivo_id === dispositivo.id) {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+            className: "text-left",
             key: index
-          }, dispositivo.mac + " - " + dispositivo.nombre, " ");
+          }, dispositivo.id + " - " + dispositivo.mac + " - " + dispositivo.nombre, " ");
         }
       }), ipes.map(function (ipe, index) {
         if (conexione.ipe_id === ipe.id) {

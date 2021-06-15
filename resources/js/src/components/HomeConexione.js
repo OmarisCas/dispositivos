@@ -86,7 +86,7 @@ const HomeConexione = () => {
             <tr key={index} className="text-center">
                 {dispositivos.map((dispositivo, index) => {
                     if( conexione.dispositivo_id === dispositivo.id ){
-                        return <td key={index}>{dispositivo.mac + " - " + dispositivo.nombre} </td>
+                        return <td className="text-left" key={index}>{dispositivo.id + " - " + dispositivo.mac + " - " + dispositivo.nombre} </td>
                     }}
                 )}              
 
