@@ -1,5 +1,5 @@
-INSERT INTO `dispositivos`.`estados` (`id`, `codigo`, `nombre`) VALUES ('1', '0', 'offline');
-INSERT INTO `dispositivos`.`estados` (`id`, `codigo`, `nombre`) VALUES ('2', '1', 'online');
+INSERT INTO `dispositivos`.`estados` (`id`, `codigo`, `nombre`) VALUES ('1', '0', 'Offline');
+INSERT INTO `dispositivos`.`estados` (`id`, `codigo`, `nombre`) VALUES ('2', '1', 'Online');
 
 
 INSERT INTO `dispositivos`.`ipes` (`id`, `longitud`) VALUES ('1', '192.168.18.2');
@@ -258,16 +258,16 @@ INSERT INTO `dispositivos`.`ipes` (`id`, `longitud`) VALUES ('254', '192.168.18.
 INSERT INTO `dispositivos`.`ipes` (`id`, `longitud`) VALUES ('255', '192.168.18.255');
 
 
-INSERT INTO `dispositivos`.`cargos` (`id`, `nombre`, `descripcion`) VALUES ('1', 'operario', 'apoya en el area de produccion');
-INSERT INTO `dispositivos`.`cargos` (`id`, `nombre`, `descripcion`) VALUES ('2', 'jefe produccion', 'jefe del area de produccion');
-INSERT INTO `dispositivos`.`cargos` (`id`, `nombre`, `descripcion`) VALUES ('3', 'jefe calidad', 'calidad de los procesos produccion');
-INSERT INTO `dispositivos`.`cargos` (`id`, `nombre`, `descripcion`) VALUES ('4', 'practicante', 'apoya en el area de produccion');
-INSERT INTO `dispositivos`.`cargos` (`id`, `nombre`, `descripcion`) VALUES ('5', 'auxiliar produccion', 'apoya en el area administrativa');
-INSERT INTO `dispositivos`.`cargos` (`id`, `nombre`, `descripcion`) VALUES ('6', 'directora de operaciones', 'toma las decisiones de la planta');
-INSERT INTO `dispositivos`.`cargos` (`id`, `nombre`, `descripcion`) VALUES ('7', 'jefe mantenimiento', 'mantiene disponibilidad para inconvenientes con los cuartos frios');
-INSERT INTO `dispositivos`.`cargos` (`id`, `nombre`, `descripcion`) VALUES ('8', 'jefe sistemas', 'encargada de sistematizar los procesos');
-INSERT INTO `dispositivos`.`cargos` (`id`, `nombre`, `descripcion`) VALUES ('9', 'conductor', 'apoya en la recoleccion de materia prima');
-INSERT INTO `dispositivos`.`cargos` (`id`, `nombre`, `descripcion`) VALUES ('10', 'vigilante', 'labores varias');
+INSERT INTO `dispositivos`.`cargos` (`id`, `nombre`, `descripcion`) VALUES ('1', 'Operario', 'Apoya en el area de produccion');
+INSERT INTO `dispositivos`.`cargos` (`id`, `nombre`, `descripcion`) VALUES ('2', 'Jefe de Producción', 'Jefe del Área de Producción');
+INSERT INTO `dispositivos`.`cargos` (`id`, `nombre`, `descripcion`) VALUES ('3', 'Jefe de Calidad', 'Calidad de los procesos producción');
+INSERT INTO `dispositivos`.`cargos` (`id`, `nombre`, `descripcion`) VALUES ('4', 'Practicante', 'Apoya en el Área de Producción');
+INSERT INTO `dispositivos`.`cargos` (`id`, `nombre`, `descripcion`) VALUES ('5', 'Auxiliar de Producción', 'Apoya en el Área Administrativa');
+INSERT INTO `dispositivos`.`cargos` (`id`, `nombre`, `descripcion`) VALUES ('6', 'Directora de Operaciones', 'Toma las decisiones de la planta');
+INSERT INTO `dispositivos`.`cargos` (`id`, `nombre`, `descripcion`) VALUES ('7', 'Jefe de Mantenimiento', 'Mantiene disponibilidad para inconvenientes con los equipos de refrigeración');
+INSERT INTO `dispositivos`.`cargos` (`id`, `nombre`, `descripcion`) VALUES ('8', 'Jefe de Sistemas', 'Encargada de sistematizar los procesos');
+INSERT INTO `dispositivos`.`cargos` (`id`, `nombre`, `descripcion`) VALUES ('9', 'Conductor', 'Apoya en la recolección de materia prima');
+INSERT INTO `dispositivos`.`cargos` (`id`, `nombre`, `descripcion`) VALUES ('10', 'Vigilante', 'Labores varias');
 
 
 

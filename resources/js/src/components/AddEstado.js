@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useHistory } from "react-router-dom";
-import AppContainer from './AppContainer';
+import { useHistory, Link } from "react-router-dom";
+import AppContainerAdd from './AppContainerAdd';
 import api from '../api';
 
 const AddEstado = () => {
@@ -24,7 +24,7 @@ const AddEstado = () => {
     };
 
     return(
-        <AppContainer title="Agregar Estado">
+        <AppContainerAdd title="Agregar Estado">
             <form>
                 <div className="form-group">
                     <label>Código</label>
@@ -37,10 +37,13 @@ const AddEstado = () => {
                 <div className="form-group">
                     <button type="button" className="btn btn-success" onClick={onAddSubmit} disabled={loading}>
                         {loading ? 'Cargando...' : 'Agregar'}
-                    </button>
+                    </button>&nbsp;&nbsp;
+                    <Link type="button" className="btn btn-danger" to="/estados">
+                        {loading ? 'Cancelando...' : 'Cancelar'}
+                    </Link>
                 </div>
             </form>
-        </AppContainer>
+        </AppContainerAdd>
     );
 };
 

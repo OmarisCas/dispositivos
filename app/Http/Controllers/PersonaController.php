@@ -15,7 +15,8 @@ class PersonaController extends Controller
      */
     public function index()
     {
-        return PersonaResource::collection(Persona::all());
+        //return PersonaResource::collection(Persona::all());
+        return PersonaResource::collection(Persona::orderBy('nombre', 'asc')->get());
     }
 
     /**

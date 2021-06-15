@@ -2,14 +2,20 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import AppContainer from './AppContainer';
 import api from '../api';
+import _ from "lodash";
+
+const pageSize = 5;
 
 const HomeCargo = () => {
     const [cargos, setCargos] = useState(null);
+    const [paginatedCargos, setpaginatedCargos] = useState();
+    const [currentPage, setcurrentPage] = useState(1);
 
     const fetchCargos = () => {
         api.getAllCargos().then(res => {
             const result = res.data;
-            setCargos(result.data)
+            setCargos(result.data);
+            setpaginatedCargos(_(result.data).slice(0).take(pageSize).value());
         });
     }
 
@@ -17,8 +23,20 @@ const HomeCargo = () => {
         fetchCargos();
     }, []);
 
+    //probando
+    const pageCount = cargos? Math.ceil(cargos.length/pageSize) :0;
+    if(pageCount === 1) return null;
+    const pages = _.range(1, pageCount+1);
+    const pagination = (pageNo) => {
+        setcurrentPage(pageNo);
+        const startIndex = (pageNo - 1) * pageSize;
+        const paginatedCargo = _(cargos).slice(startIndex).take(pageSize).value();
+        setpaginatedCargos(paginatedCargo);
+    }
+    //findeprobando
+
     const renderCargos = () => {
-        if(!cargos){
+        if(!paginatedCargos){
             return (
                 <tr>
                     <td colSpan="10">
@@ -27,7 +45,7 @@ const HomeCargo = () => {
                 </tr>
             );
         }
-        if(cargos.length === 0){
+        if(paginatedCargos.length === 0){
             return (
                 <tr>
                     <td colSpan="10">
@@ -37,15 +55,15 @@ const HomeCargo = () => {
             );
         }
 
-        return cargos.map((cargo, index) => (
-            <tr key={index}>
+        return paginatedCargos.map((cargo, index) => (
+            <tr key={index} className="text-center">
                 <td>{cargo.id}</td>
                 <td>{cargo.nombre}</td>
                 <td>{cargo.descripcion}</td>
                 <td>
                     <Link className="btn btn-warning" to={`/editcar/${cargo.id}`}>
                         EDITAR
-                    </Link>
+                    </Link>&nbsp;&nbsp;
                     <button type="button" className="btn btn-danger" onClick={ () => {
                         api.deleteCargo(cargo.id)
                         .then(fetchCargos)
@@ -62,16 +80,18 @@ const HomeCargo = () => {
 
     return(
         <AppContainer title="Cargos">
-            <Link to="/addcargo" className="btn btn-primary">Agregar Cargo</Link>
-            <Link to="/conexiones" className="btn btn-secundary">Conexiones</Link>
-            <Link to="/dispositivos" className="btn btn-secundary">Dispositivos</Link>
-            <Link to="/estados" className="btn btn-secundary">Estados</Link>
-            <Link to="/ipes" className="btn btn-secundary">IP's</Link>
-            <Link to="/personas" className="btn btn-secundary">Personas</Link>
+            <ul class="nav nav-pills card-header-pills">
+                <Link to="/addcargo" className="btn btn-primary nav-link active">Agregar Cargo</Link>
+                <Link to="/conexiones" className="btn btn-secundary nav-link">Conexiones</Link>
+                <Link to="/dispositivos" className="btn btn-secundary nav-link">Dispositivos</Link>
+                <Link to="/estados" className="btn btn-secundary nav-link">Estados</Link>
+                <Link to="/ipes" className="btn btn-secundary nav-link">IP's</Link>
+                <Link to="/personas" className="btn btn-secundary nav-link">Personas</Link>
+            </ul>
             <div className="table-responsive">
-                <table className="table table-striped mt-4">
+                <table className="table table-hover table-sm table-responsive-sm mt-4">
                     <thead>
-                        <tr>
+                        <tr className="text-center">
                             <th>ID</th>
                             <th>Nombre</th>
                             <th>Descripcion</th>
@@ -82,6 +102,17 @@ const HomeCargo = () => {
                         {renderCargos()}
                     </tbody>
                 </table>
+                <nav className="d-flex justify-content-center">
+                    <ul className="pagination">
+                        {
+                            pages.map((page, index) => (
+                                <li key={index} className={page === currentPage? "page-item active":"page-item"}>
+                                    <p className="page-link" onClick={() => pagination(page)}>{page}</p>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </nav>
             </div>
         </AppContainer>
     );

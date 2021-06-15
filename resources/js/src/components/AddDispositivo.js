@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory } from "react-router-dom";
-import AppContainer from './AppContainer';
+import { useHistory, Link } from "react-router-dom";
+import AppContainerAdd from './AppContainerAdd';
 import api from '../api';
 
 const AddDispositivo = () => {
@@ -39,7 +39,7 @@ const AddDispositivo = () => {
     }, []);
 
     return(
-        <AppContainer title="Agregar Dispositivo">
+        <AppContainerAdd title="Agregar Dispositivo">
             <form>
                 <div className="form-group">
                     <label>MAC</label>
@@ -68,11 +68,14 @@ const AddDispositivo = () => {
                 </div>
                 <div className="form-group">
                     <button type="button" className="btn btn-success" onClick={onAddSubmit} disabled={loading}>
-                        {loading ? 'Cargando...' : 'Agregar Dispositivo'}
-                    </button>
+                        {loading ? 'Cargando...' : 'Agregar'}
+                    </button>&nbsp;&nbsp;
+                    <Link type="button" className="btn btn-danger" to="/dispositivos">
+                        {loading ? 'Cancelando...' : 'Cancelar'}
+                    </Link>
                 </div>
             </form>
-        </AppContainer>
+        </AppContainerAdd>
     );
 };
 

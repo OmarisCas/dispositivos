@@ -28,3 +28,5 @@ php artisan migrate
 php artisan make:model Post
 php artisan make:controller PostController --resource
 php artisan make:resource Post
+
+npm i lodash

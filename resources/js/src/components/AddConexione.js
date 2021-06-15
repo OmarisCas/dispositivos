@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory } from "react-router-dom";
-import AppContainer from './AppContainer';
+import { useHistory, Link } from "react-router-dom";
+import AppContainerAdd from './AppContainerAdd';
 import api from '../api';
 
 const AddConexione = () => {
@@ -56,7 +56,7 @@ const AddConexione = () => {
     }, []);
 
     return(
-        <AppContainer title="Agregar Conexión">
+        <AppContainerAdd title="Agregar Conexión">
             <form>
                 <div className="form-group">
                     <label>Dispositivo</label>
@@ -92,10 +92,13 @@ const AddConexione = () => {
                 <div className="form-group">
                     <button type="button" className="btn btn-success" onClick={onAddSubmit} disabled={loading}>
                         {loading ? 'Asignando...' : 'Asignar'}
-                    </button>
+                    </button>&nbsp;&nbsp;
+                    <Link type="button" className="btn btn-danger" to="/conexiones">
+                        {loading ? 'Cancelando...' : 'Cancelar'}
+                    </Link>
                 </div>
             </form>
-        </AppContainer>
+        </AppContainerAdd>
     );
 };
 

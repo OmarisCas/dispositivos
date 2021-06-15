@@ -2,15 +2,21 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import AppContainer from './AppContainer';
 import api from '../api';
+import _ from "lodash";
+
+const pageSize = 10;
 
 const HomeIpe = () => {
     const [ipes, setIpes] = useState(null);
     const [estados, setEstados] = useState([]);
+    const [paginatedIpes, setpaginatedIpes] = useState();
+    const [currentPage, setcurrentPage] = useState(1);
 
     const fetchIpes = () => {
         api.getAllIpes().then(res => {
             const result = res.data;
-            setIpes(result.data)
+            setIpes(result.data);
+            setpaginatedIpes(_(result.data).slice(0).take(pageSize).value());
         });
     }
 
@@ -26,8 +32,20 @@ const HomeIpe = () => {
         fetchEstados();
     }, []);
 
+    //probando
+    const pageCount = ipes? Math.ceil(ipes.length/pageSize) :0;
+    if(pageCount === 1) return null;
+    const pages = _.range(1, pageCount+1);
+    const pagination = (pageNo) => {
+        setcurrentPage(pageNo);
+        const startIndex = (pageNo - 1) * pageSize;
+        const paginatedIpe = _(ipes).slice(startIndex).take(pageSize).value();
+        setpaginatedIpes(paginatedIpe);
+    }
+    //findeprobando
+
     const renderIpes = () => {
-        if(!ipes){
+        if(!paginatedIpes){
             return (
                 <tr>
                     <td colSpan="10">
@@ -36,7 +54,7 @@ const HomeIpe = () => {
                 </tr>
             );
         }
-        if(ipes.length === 0){
+        if(paginatedIpes.length === 0){
             return (
                 <tr>
                     <td colSpan="10">
@@ -46,21 +64,31 @@ const HomeIpe = () => {
             );
         }
 
-        return ipes.map((ipe) => (
-            <tr>
+        return paginatedIpes.map((ipe, index) => (
+            <tr key={index} className="text-center">
                 <td>{ipe.id}</td>
                 <td>{ipe.longitud}</td>
                 
-                {estados.map(estado => {
+                {estados.map((estado, index) => {
                     if( ipe.estado_id === estado.id ){
-                        return <td>{estado.nombre}</td>
+                        if (ipe.estado_id === 1) {
+                            return <td key={index}>
+                            <button className="btn btn-danger">
+                                {estado.nombre}
+                            </button> </td>
+                        }else{
+                            return <td key={index}>
+                            <button className="btn btn-success">
+                                {estado.nombre}
+                            </button> </td>
+                        }
                     }}
                 )}
 
                 <td>
                     <Link className="btn btn-warning" to={`/editipe/${ipe.id}`}>
                         EDITAR
-                    </Link>
+                    </Link>&nbsp;&nbsp;
                     <button type="button" className="btn btn-danger" onClick={() => {
                         api.deleteIpe(ipe.id)
                         .then(fetchIpes)
@@ -77,16 +105,18 @@ const HomeIpe = () => {
 
     return(
         <AppContainer title="Direcciones IP'S">
-            <Link to="/addipe" className="btn btn-primary">Agregar IP</Link>
-            <Link to="/cargos" className="btn btn-secundary">Cargos</Link>
-            <Link to="/conexiones" className="btn btn-secundary">Conexiones</Link>
-            <Link to="/dispositivos" className="btn btn-secundary">Dispositivos</Link>
-            <Link to="/estados" className="btn btn-secundary">Estados</Link>
-            <Link to="/personas" className="btn btn-secundary">Personas</Link>
+            <ul class="nav nav-pills card-header-pills">
+                <Link to="/addipe" className="btn btn-primary nav-link active">Agregar IP</Link>
+                <Link to="/cargos" className="btn btn-secundary nav-link">Cargos</Link>
+                <Link to="/conexiones" className="btn btn-secundary nav-link">Conexiones</Link>
+                <Link to="/dispositivos" className="btn btn-secundary nav-link">Dispositivos</Link>
+                <Link to="/estados" className="btn btn-secundary nav-link">Estados</Link>
+                <Link to="/personas" className="btn btn-secundary nav-link">Personas</Link>
+            </ul>
             <div className="table-responsive">
-                <table className="table table-striped mt-4">
+                <table className="table table-hover table-sm table-responsive-sm mt-4">
                     <thead>
-                        <tr>
+                        <tr className="text-center">
                             <th>ID</th>
                             <th>Longitud</th>
                             <th>Estado</th>
@@ -97,6 +127,17 @@ const HomeIpe = () => {
                         {renderIpes()}
                     </tbody>
                 </table>
+                <nav className="d-flex justify-content-center">
+                    <ul className="pagination">
+                        {
+                            pages.map((page, index) => (
+                                <li key={index} className={page === currentPage? "page-item active":"page-item"}>
+                                    <p className="page-link" onClick={() => pagination(page)}>{page}</p>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </nav>
             </div>
         </AppContainer>
     );

@@ -2,17 +2,23 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import AppContainer from './AppContainer';
 import api from '../api';
+import _ from "lodash";
+
+const pageSize = 1;
 
 const HomeConexione = () => {
     const [conexiones, setConexiones] = useState(null);
     const [dispositivos, setDispositivos] = useState([]);
     const [ipes, setIpes] = useState([]);
     const [estados, setEstados] = useState([]);
+    const [paginatedConexiones, setpaginatedConexiones] = useState();
+    const [currentPage, setcurrentPage] = useState(1);
 
     const fetchConexiones = () => {
         api.getAllConexiones().then(res => {
             const result = res.data;
-            setConexiones(result.data)
+            setConexiones(result.data);
+            setpaginatedConexiones(_(result.data).slice(0).take(pageSize).value());
         });
     }
 
@@ -44,8 +50,20 @@ const HomeConexione = () => {
         fetchEstados();
     }, []);
 
+    //probando
+    const pageCount = conexiones? Math.ceil(conexiones.length/pageSize) :0;
+    if(pageCount === 1) return null;
+    const pages = _.range(1, pageCount+1);
+    const pagination = (pageNo) => {
+        setcurrentPage(pageNo);
+        const startIndex = (pageNo - 1) * pageSize;
+        const paginatedConexione = _(conexiones).slice(startIndex).take(pageSize).value();
+        setpaginatedConexiones(paginatedConexione);
+    }
+    //findeprobando
+
     const renderConexiones = () => {
-        if(!conexiones){
+        if(!paginatedConexiones){
             return (
                 <tr>
                     <td colSpan="10">
@@ -54,7 +72,7 @@ const HomeConexione = () => {
                 </tr>
             );
         }
-        if(conexiones.length === 0){
+        if(paginatedConexiones.length === 0){
             return (
                 <tr>
                     <td colSpan="10">
@@ -64,17 +82,17 @@ const HomeConexione = () => {
             );
         }
 
-        return conexiones.map((conexione) => (
-            <tr>
-                {dispositivos.map(dispositivo => {
+        return paginatedConexiones.map((conexione, index) => (
+            <tr key={index} className="text-center">
+                {dispositivos.map((dispositivo, index) => {
                     if( conexione.dispositivo_id === dispositivo.id ){
-                        return <td>{dispositivo.mac + " - " + dispositivo.nombre} </td>
+                        return <td key={index}>{dispositivo.mac + " - " + dispositivo.nombre} </td>
                     }}
                 )}              
 
-                {ipes.map(ipe => {
+                {ipes.map((ipe, index) => {
                     if( conexione.ipe_id === ipe.id ){
-                        return <td>{ipe.longitud}</td>
+                        return <td key={index}>{ipe.longitud}</td>
                     }}
                 )}
 
@@ -97,12 +115,12 @@ const HomeConexione = () => {
                 <td>
                     <Link className="btn btn-warning" to={`/editcon/${conexione.id}`}>
                         EDITAR
-                    </Link>
+                    </Link>&nbsp;&nbsp;
                     <button type="button" className="btn btn-danger" onClick={() => {
                         api.deleteConexione(conexione.id)
                         .then(fetchConexiones)
                         .catch(err => {
-                            alert('Fallo al eliminar conexion con id :' + ipe.id);
+                            alert('Fallo al eliminar conexion con id :' + conexione.ipe_id);
                         });
                     }}>
                         ELIMINAR
@@ -114,16 +132,18 @@ const HomeConexione = () => {
 
     return(
         <AppContainer title="Conexiones">
-            <Link to="/addcon" className="btn btn-primary">Agregar Conexion</Link>
-            <Link to="/cargos" className="btn btn-secundary">Cargos</Link>
-            <Link to="/dispositivos" className="btn btn-secundary">Dispositivos</Link>
-            <Link to="/estados" className="btn btn-secundary">Estados</Link>
-            <Link to="/ipes" className="btn btn-secundary">IP's</Link>
-            <Link to="/personas" className="btn btn-secundary">Personas</Link>
+            <ul class="nav nav-pills card-header-pills">
+                <Link to="/addcon" className="btn btn-primary nav-link active">Agregar Conexion</Link>
+                <Link to="/cargos" className="btn btn-secundary nav-link">Cargos</Link>
+                <Link to="/dispositivos" className="btn btn-secundary nav-link">Dispositivos</Link>
+                <Link to="/estados" className="btn btn-secundary nav-link">Estados</Link>
+                <Link to="/ipes" className="btn btn-secundary nav-link">IP's</Link>
+                <Link to="/personas" className="btn btn-secundary nav-link">Personas</Link>
+            </ul>
             <div className="table-responsive">
-                <table className="table table-striped mt-4">
+                <table className="table table-hover table-sm table-responsive-sm mt-4">
                     <thead>
-                        <tr>
+                        <tr className="text-center">
                             <th>Dispositivo</th>
                             <th>Dirección IP</th>
                             <th>Estado</th>
@@ -135,6 +155,17 @@ const HomeConexione = () => {
                         {renderConexiones()}
                     </tbody>
                 </table>
+                <nav className="d-flex justify-content-center">
+                    <ul className="pagination">
+                        {
+                            pages.map((page, index) => (
+                                <li key={index} className={page === currentPage? "page-item active":"page-item"}>
+                                    <p className="page-link" onClick={() => pagination(page)}>{page}</p>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </nav>
             </div>
         </AppContainer>
     );

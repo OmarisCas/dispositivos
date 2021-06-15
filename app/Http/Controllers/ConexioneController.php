@@ -15,7 +15,8 @@ class ConexioneController extends Controller
      */
     public function index()
     {
-        return ConexioneResource::collection(Conexione::all());
+        //return ConexioneResource::collection(Conexione::all());
+        return ConexioneResource::collection(Conexione::orderBy('ipe_id', 'asc')->get());
     }
 
     /**
@@ -72,12 +73,17 @@ class ConexioneController extends Controller
             'ipe_id' => 'required',
             'estado_id' => 'required',
         ]);
+        $IP = $request->ipe_id;
+        $STATE = $request->estado_id;
         $conexione = Conexione::findOrFail($id);
         $conexione->dispositivo_id = $request->dispositivo_id;
         $conexione->ipe_id = $request->ipe_id;
         $conexione->estado_id = $request->estado_id;
         $conexione->descripcion = $request->descripcion;
         $conexione->save();
+        $stateIP = Ipe::find($IP);
+        $stateIP->estado_id = $STATE;
+        $stateIP->save();
 
         return response()->json([
             'data' => 'Conexion actualizada!'
@@ -93,7 +99,11 @@ class ConexioneController extends Controller
     public function destroy($id)
     {
         $conexione = Conexione::findOrFail($id);
+        $IP = $conexione->ipe_id;
         $conexione->delete();
+        $stateIP = Ipe::find($IP);
+        $stateIP->estado_id = 1;
+        $stateIP->save();
 
         return response()->json([
             'data' => 'Conexion eliminada!'
