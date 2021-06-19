@@ -6,12 +6,13 @@ import api from '../api';
 const AddMonitoreo = () => {
     const history = useHistory();
     const [loading, setLoading] = useState(false);
-    const [fecha, setFecha] = useState('');
-    const [descripcion, setDescripcion] = useState('');
-    const [conexione_id, setConexione_id] = useState('');
-    const [estado_id, setEstado_id] = useState('');
+    const [fecha, setFecha] = useState({});
+    const [descripcion, setDescripcion] = useState([]);
+    const [conexione_id, setConexione_id] = useState([]);
+    const [estado_id, setEstado_id] = useState([]);
     const [conexiones, setConexiones] = useState([]);
     const [estados, setEstados] = useState([]);
+    const [ipes, setIpes] = useState([]);
 
     const onAddSubmit = async () => {
         setLoading(true);
@@ -27,13 +28,6 @@ const AddMonitoreo = () => {
         }
     };
 
-    const fetchMonitoreos = () => {
-        api.getAllMonitoreos().then(res => {
-            const result = res.data;
-            setMonitoreos(result.data)
-        });
-    }
-
     const fetchConexiones = () => {
         api.getAllConexiones().then(res => {
             const result = res.data;
@@ -48,45 +42,75 @@ const AddMonitoreo = () => {
         });
     }
 
+    const fetchIpes = () => {
+        api.getAllIpes().then(res => {
+            const result = res.data;
+            setIpes(result.data)
+        });
+    }
+
+    const separator='-';
+    let newDate = new Date()
+    let date = newDate.getDate();
+    let month = newDate.getMonth() + 1;
+    let year = newDate.getFullYear();
+    const mostrar = `${year}${separator}${month<10?`0${month}`:`${month}`}${separator}${date}`;
+
     useEffect(() => {
-        fetchMonitoreos();
         fetchConexiones();
         fetchEstados();
+        fetchIpes();
     }, []);
 
     return(
         <AppContainer
             classcard="card border-success" classheader="card-header border-success" title="Agregar Monitoreo">
             <form>
-                <div className="form-group">
-                    <label>Fecha</label>
-                    <input type="date" className="form-control" value={fecha} onChange={e => setFecha(e.target.value)}/>
-                </div>
-                <div className="form-group">
-                    <label>Descripcion</label>
-                    <textarea className="form-control" value={descripcion} onChange={e => setDescripcion(e.target.value)} ></textarea>
-                </div>
-                <div className="form-group">
-                    <label>Conexion</label>
-                    <select onChange={e => setConexione_id(e.target.value)} className="form-control">
-                        <option selected>---------</option>
-                        {conexiones.map(conexione => 
-                            <option key={conexione.id} value={conexione.id}>{conexione.descripcion}</option>
-                        )}
-                    </select>
-                </div>
-                <div className="form-group">
-                    <label>Estado de la conexión</label>
-                    <select onChange={e => setEstado_id(e.target.value)} className="form-control">
-                        <option selected>---------</option>
-                        {estados.map(estado => 
-                            <option key={estado.id} value={estado.id}>{estado.nombre}</option>
-                        )}
-                    </select>
-                </div>
+                <table>
+                    <thead>
+                        <tr className="text-center">
+                            <th>Fecha</th>
+                            <th>Descripcion</th>
+                            <th>Conexion</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    {conexiones.map((conexione, index) =>
+                        <tbody>
+                            <tr key={index}>
+                                <td>
+                                    <input name="fecha[]" type="date" className="form-control" value={mostrar}
+                                    onChange={e => { fecha = e.target["value"]; setFecha(e.target["value"]); } }/>
+                                </td>
+                                <td>
+                                    <textarea name="descripcion[]" className="form-control" value={descripcion}
+                                    onChange={e => { descripcion = e.target["value"]; setDescripcion(e.target["value"]); } } ></textarea>
+                                </td>
+                                <td>
+                                    <input name="conexione_id[]" type="number" key={conexione.id} value={conexione.id}
+                                    onChange={e => { conexione_id = e.target["value"]; setConexione_id(e.target["value"]); } }/>
+                                    {ipes.map(ipe => {
+                                        if( conexione.ipe_id === ipe.id ){
+                                            return ipe.longitud
+                                        }}
+                                    )}
+                                </td>
+                                <td>
+                                    <select name="estado_id[]" className="form-control"
+                                    onChange={e => { estado_id = e.target["value"]; setEstado_id(e.target["value"]); } }>
+                                        <option selected>---------</option>
+                                        {estados.map(estado => 
+                                            <option value={estado.id}>{estado.nombre}</option>
+                                        )}
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    )}
+                </table>
                 <div className="form-group">
                     <button type="button" className="btn btn-success" onClick={onAddSubmit} disabled={loading}>
-                        {loading ? 'Asignando...' : 'Asignar'}
+                        {loading ? 'Cargando...' : 'Agregar'}
                     </button>&nbsp;&nbsp;
                     <Link type="button" className="btn btn-danger" to="/monitoreos">
                         {loading ? 'Cancelando...' : 'Cancelar'}

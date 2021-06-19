@@ -27,6 +27,7 @@ class MonitoreoController extends Controller
      */
     public function store(Request $request)
     {
+        /*
         $request->validate([
             'fecha' => 'required',
             'conexione_id' => 'required',
@@ -41,7 +42,21 @@ class MonitoreoController extends Controller
         $monitoreo->save();
         return response()->json([
             'data' => 'Monitoreo creado!'
+        ]);*/
+
+        foreach ($request->input('conexione_id', []) as $i => $nombre) {
+            Monitoreo::create([
+                'fecha' => $request->input('fecha.' . $i),
+                'descripcion'    => $request->input('descripcion.' . $i),
+                'conexione_id'        => $request->input('conexione_id.' . $i),
+                'estado_id'        => $request->input('estado_id.' . $i),
+            ]);
+        }
+
+        return response()->json([
+            'data' => 'Monitoreo creado!'
         ]);
+
     }
 
     /**

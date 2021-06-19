@@ -72074,6 +72074,8 @@ function _iterableToArrayLimit(arr, i) { var _i = arr && (typeof Symbol !== "und
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
+function _readOnlyError(name) { throw new TypeError("\"" + name + "\" is read-only"); }
+
 
 
 
@@ -72087,22 +72089,22 @@ var AddMonitoreo = function AddMonitoreo() {
       loading = _useState2[0],
       setLoading = _useState2[1];
 
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(''),
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])({}),
       _useState4 = _slicedToArray(_useState3, 2),
       fecha = _useState4[0],
       setFecha = _useState4[1];
 
-  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(''),
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])([]),
       _useState6 = _slicedToArray(_useState5, 2),
       descripcion = _useState6[0],
       setDescripcion = _useState6[1];
 
-  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(''),
+  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])([]),
       _useState8 = _slicedToArray(_useState7, 2),
       conexione_id = _useState8[0],
       setConexione_id = _useState8[1];
 
-  var _useState9 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(''),
+  var _useState9 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])([]),
       _useState10 = _slicedToArray(_useState9, 2),
       estado_id = _useState10[0],
       setEstado_id = _useState10[1];
@@ -72116,6 +72118,11 @@ var AddMonitoreo = function AddMonitoreo() {
       _useState14 = _slicedToArray(_useState13, 2),
       estados = _useState14[0],
       setEstados = _useState14[1];
+
+  var _useState15 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])([]),
+      _useState16 = _slicedToArray(_useState15, 2),
+      ipes = _useState16[0],
+      setIpes = _useState16[1];
 
   var onAddSubmit = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
@@ -72161,13 +72168,6 @@ var AddMonitoreo = function AddMonitoreo() {
     };
   }();
 
-  var fetchMonitoreos = function fetchMonitoreos() {
-    _api__WEBPACK_IMPORTED_MODULE_4__["default"].getAllMonitoreos().then(function (res) {
-      var result = res.data;
-      setMonitoreos(result.data);
-    });
-  };
-
   var fetchConexiones = function fetchConexiones() {
     _api__WEBPACK_IMPORTED_MODULE_4__["default"].getAllConexiones().then(function (res) {
       var result = res.data;
@@ -72182,68 +72182,85 @@ var AddMonitoreo = function AddMonitoreo() {
     });
   };
 
+  var fetchIpes = function fetchIpes() {
+    _api__WEBPACK_IMPORTED_MODULE_4__["default"].getAllIpes().then(function (res) {
+      var result = res.data;
+      setIpes(result.data);
+    });
+  };
+
+  var separator = '-';
+  var newDate = new Date();
+  var date = newDate.getDate();
+  var month = newDate.getMonth() + 1;
+  var year = newDate.getFullYear();
+  var mostrar = "".concat(year).concat(separator).concat(month < 10 ? "0".concat(month) : "".concat(month)).concat(separator).concat(date);
   Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
-    fetchMonitoreos();
     fetchConexiones();
     fetchEstados();
+    fetchIpes();
   }, []);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_AppContainer__WEBPACK_IMPORTED_MODULE_3__["default"], {
     classcard: "card border-success",
     classheader: "card-header border-success",
     title: "Agregar Monitoreo"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-    className: "form-group"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", null, "Fecha"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
-    type: "date",
-    className: "form-control",
-    value: fecha,
-    onChange: function onChange(e) {
-      return setFecha(e.target.value);
-    }
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-    className: "form-group"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", null, "Descripcion"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
-    className: "form-control",
-    value: descripcion,
-    onChange: function onChange(e) {
-      return setDescripcion(e.target.value);
-    }
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-    className: "form-group"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", null, "Conexion"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("select", {
-    onChange: function onChange(e) {
-      return setConexione_id(e.target.value);
-    },
-    className: "form-control"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
-    selected: true
-  }, "---------"), conexiones.map(function (conexione) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("table", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("tr", {
+    className: "text-center"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("th", null, "Fecha"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("th", null, "Descripcion"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("th", null, "Conexion"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("th", null, "Estado"))), conexiones.map(function (conexione, index) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("tr", {
+      key: index
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+      name: "fecha[]",
+      type: "date",
+      className: "form-control",
+      value: mostrar,
+      onChange: function onChange(e) {
+        e.target["value"], _readOnlyError("fecha");
+        setFecha(e.target["value"]);
+      }
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
+      name: "descripcion[]",
+      className: "form-control",
+      value: descripcion,
+      onChange: function onChange(e) {
+        e.target["value"], _readOnlyError("descripcion");
+        setDescripcion(e.target["value"]);
+      }
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+      name: "conexione_id[]",
+      type: "number",
       key: conexione.id,
-      value: conexione.id
-    }, conexione.descripcion);
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-    className: "form-group"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", null, "Estado de la conexi\xF3n"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("select", {
-    onChange: function onChange(e) {
-      return setEstado_id(e.target.value);
-    },
-    className: "form-control"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
-    selected: true
-  }, "---------"), estados.map(function (estado) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
-      key: estado.id,
-      value: estado.id
-    }, estado.nombre);
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      value: conexione.id,
+      onChange: function onChange(e) {
+        e.target["value"], _readOnlyError("conexione_id");
+        setConexione_id(e.target["value"]);
+      }
+    }), ipes.map(function (ipe) {
+      if (conexione.ipe_id === ipe.id) {
+        return ipe.longitud;
+      }
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("select", {
+      name: "estado_id[]",
+      className: "form-control",
+      onChange: function onChange(e) {
+        e.target["value"], _readOnlyError("estado_id");
+        setEstado_id(e.target["value"]);
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
+      selected: true
+    }, "---------"), estados.map(function (estado) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
+        value: estado.id
+      }, estado.nombre);
+    })))));
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "form-group"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
     type: "button",
     className: "btn btn-success",
     onClick: onAddSubmit,
     disabled: loading
-  }, loading ? 'Asignando...' : 'Asignar'), "\xA0\xA0", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+  }, loading ? 'Cargando...' : 'Agregar'), "\xA0\xA0", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
     type: "button",
     className: "btn btn-danger",
     to: "/monitoreos"
