@@ -70869,7 +70869,7 @@ react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEB
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var axios = window.axios;
-var BASE_API_URL = 'http://localhost:8000/api';
+var BASE_API_URL = 'http://192.168.18.101:8000/api';
 /* harmony default export */ __webpack_exports__["default"] = ({
   //PERSONAS
   getAllPersonas: function getAllPersonas() {

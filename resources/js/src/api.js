@@ -1,6 +1,6 @@
 const axios = window.axios;
 
-const BASE_API_URL = 'http://localhost:8000/api'
+const BASE_API_URL = 'http://192.168.18.101:8000/api'
 
 export default {
     //PERSONAS
