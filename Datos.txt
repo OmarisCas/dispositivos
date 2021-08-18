@@ -29,3 +29,7 @@ php artisan make:model Post
 php artisan make:controller PostController --resource
 php artisan make:resource Post
 npm i lodash
+
+Comandos para correr la app:
+npm run watch
+php artisan serve
